@@ -20,14 +20,4 @@ export default {
 }
 </script>
 
-<style>
-  .flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 10px;
-        gap: 10px;
-    }
-</style>
 

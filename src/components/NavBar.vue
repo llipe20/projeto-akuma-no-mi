@@ -9,7 +9,7 @@
                 <span style="padding-left: 25px;">
                     BRAZINO
                 </span>
-                <span style="color:yellow;">
+                <span class="text-purple-700">
                     777
                 </span>
             </div>
@@ -145,6 +145,14 @@ export default {
 </script>
 
 <style scoped>
+  .flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }
 
     .nav-bar, .btn {
         background-color: black;
