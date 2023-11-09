@@ -1,12 +1,12 @@
 <template>
     <div class="flex justify-between items-center w-full h-20 text-white pr-8 pl-10 max-md:justify-end">
-        <div class="flex gap-10 max-md:hidden">
+        <div class="flex justify-center items-center gap-10 h-full max-md:hidden">
             <a href="#" class="hover:border-b">Movies</a>
             <a href="#" class="hover:border-b">Series</a>
             <a href="#" class="hover:border-b">Documentaries</a>
         </div>
 
-        <div class="flex items-center gap-10">
+        <div class="flex items-center gap-10 hover:cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
