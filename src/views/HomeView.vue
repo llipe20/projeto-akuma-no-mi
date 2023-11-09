@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-start bg-blue-600 w-full h-screen text-lg">
+    <div class="flex justify-center items-start w-full h-screen text-lg bg-black">
         <HeaderView />
     </div>
 </template>

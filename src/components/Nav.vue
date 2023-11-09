@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between items-center w-full h-20 text-white pr-8 pl-8 max-md:justify-end">
+    <div class="flex justify-between items-center w-full h-20 text-white pr-8 pl-10 max-md:justify-end">
         <div class="flex gap-10 max-md:hidden">
             <a href="#" class="hover:border-b">Movies</a>
             <a href="#" class="hover:border-b">Series</a>

@@ -12,10 +12,6 @@ export default {
 
   components : {
     DashBoard
-  },
-
-  created() {
-    this.$store.dispatch('getMovie', '/trending/all/week?language=pt-BR&api_key=')
   }
 }
 </script>

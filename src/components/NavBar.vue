@@ -1,112 +1,112 @@
 <template>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-    <!-- NAV BAR LATERAL -->
-    <section class="flex nav-bar">
-        <div class="flex container">
-            <!-- logo -->
-            <div class="flex logo">
-                <span style="padding-left: 25px;">
-                    BRAZINO
-                </span>
-                <span class="text-purple-700">
-                    777
-                </span>
+        <!-- NAV BAR LATERAL -->
+        <section class="md:flex nav-bar hidden border-r border-gray-700">
+            <div class="flex container">
+                <!-- logo -->
+                <div class="flex logo">
+                    <span style="padding-left: 25px;">
+                        BRAZINO
+                    </span>
+                    <span class="text-purple-700">
+                        777
+                    </span>
+                </div>
+
+                <!-- nav -->
+                <nav class="flex nav">
+                    <!-- nav da plataforma -->
+                    <div class="flex nav-pag">
+                        <router-link to="/" class="flex link">
+                            <!-- home link -->
+                            <span class="material-symbols-outlined">
+                                movie
+                            </span>
+                            <span class="text">
+                                Home
+                            </span>
+                        </router-link>
+
+                        <!-- favorite link -->
+                        <router-link to="/favorite" class="flex link">
+                            <span class="material-symbols-outlined">
+                                favorite
+                            </span>
+                            <span class="text">
+                                Fovorite
+                            </span>
+                        </router-link>
+
+                        <!-- Filmes link -->
+                        <router-link to="/trending" class="flex link">
+                            <span class="material-symbols-outlined">
+                                moving
+                            </span>
+                            <span class="text">
+                                Trending
+                            </span>
+                        </router-link>
+
+                        <!-- slr link -->
+                        <a href="#" class="flex link">
+                            <span class="material-symbols-outlined">
+                                calendar_today
+                            </span>
+                            <span class="text">
+                                Coming soon
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- nav de redes sociais -->
+                    <div class="flex nav-midia">
+                        <a href="#" class="flex link">
+                            <span class="material-symbols-outlined">
+                                group
+                            </span>
+                            <span class="text">
+                                Community
+                            </span>
+                        </a>
+                        <a href="#" class="flex link">
+                            <span class="material-symbols-outlined">
+                                forum
+                            </span>
+                            <span class="text">
+                                Social
+                            </span>
+                        </a>
+                    </div>
+
+                    <!-- nav de configurações -->
+                    <div class="flex nav-exit">
+                        <router-link to="/home" class="flex link">
+                            <span class="material-symbols-outlined">
+                                settings
+                            </span>
+                            <span class="text">
+                                Settings
+                            </span>
+                        </router-link>
+                        <a href="#" class="flex link">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                            <span class="text">
+                                Logout
+                            </span>
+                        </a>
+                    </div>
+                </nav>
             </div>
+        </section>
 
-            <!-- nav -->
-            <nav class="flex nav">
-                <!-- nav da plataforma -->
-                <div class="flex nav-pag">
-                    <router-link to="/" class="flex link">
-                        <!-- home link -->
-                        <span class="material-symbols-outlined">
-                            movie
-                        </span>
-                        <span class="text">
-                            Home
-                        </span>
-                    </router-link>
-
-                    <!-- favorite link -->
-                    <router-link to="/favorite" class="flex link">
-                        <span class="material-symbols-outlined">
-                            favorite
-                        </span>
-                        <span class="text">
-                            Fovorite
-                        </span>
-                    </router-link>
-
-                    <!-- Filmes link -->
-                    <router-link to="/trending" class="flex link">
-                        <span class="material-symbols-outlined">
-                            moving
-                        </span>
-                        <span class="text">
-                            Trending
-                        </span>
-                    </router-link>
-
-                    <!-- slr link -->
-                    <a href="#" class="flex link">
-                        <span class="material-symbols-outlined">
-                            calendar_today
-                        </span>
-                        <span class="text">
-                            Coming soon
-                        </span>
-                    </a>
-                </div>
-
-                <!-- nav de redes sociais -->
-                <div class="flex nav-midia">
-                    <a href="#" class="flex link">
-                        <span class="material-symbols-outlined">
-                            group
-                        </span>
-                        <span class="text">
-                            Community
-                        </span>
-                    </a>
-                    <a href="#" class="flex link">
-                        <span class="material-symbols-outlined">
-                            forum
-                        </span>
-                        <span class="text">
-                            Social
-                        </span>
-                    </a>
-                </div>
-
-                <!-- nav de configurações -->
-                <div class="flex nav-exit">
-                    <router-link to="/home" class="flex link">
-                        <span class="material-symbols-outlined">
-                            settings
-                        </span>
-                        <span class="text">
-                            Settings
-                        </span>
-                    </router-link>
-                    <a href="#" class="flex link">
-                        <span class="material-symbols-outlined">
-                            logout
-                        </span>
-                        <span class="text">
-                            Logout
-                        </span>
-                    </a>
-                </div>
-            </nav>
-        </div>
-
-        <button class="btn">
-            <span class="material-symbols-outlined" id="arrow" style="color: white;">
-                chevron_left
-            </span>
-        </button>
-    </section>
+        <span class="md:hidden text-white text-lg absolute left-8 top-8" id="open">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        </span>
 </template>
 
 <script>
@@ -139,7 +139,7 @@ export default {
     },
 
     mounted() {
-        this.Esconder()
+       
     }
 }
 </script>
@@ -160,7 +160,7 @@ export default {
         justify-content: space-between;
         height: 100vh;
         width: 70vw;
-        max-width: 220px;
+        max-width: 250px;
         padding: 0;
         gap: 0;
     }

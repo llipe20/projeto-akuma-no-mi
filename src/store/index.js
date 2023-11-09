@@ -2,13 +2,14 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    movies : {}
+    movies : []
   },
   getters: {
   },
   mutations: {
     getData : (state, data) => {
       state.movies = data
+      console.log(state.movies)
     }
   },
   actions: {
@@ -17,7 +18,6 @@ export default createStore({
         const base = 'https://api.themoviedb.org/3'
         const req = await fetch(`${base}${endpoint}${chave}`)
         const res = await req.json()
-        console.log(res.results)
 
         context.commit('getData', res.results)
      }
