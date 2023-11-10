@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
         <!-- NAV BAR LATERAL -->
-        <section class="md:flex nav-bar hidden border-r border-gray-700">
+        <section class="md:flex nav-bar hidden border-r border-gray-700 fixed left-0 top-0 w-2/6">
             <div class="flex container">
                 <!-- logo -->
                 <div class="flex logo">

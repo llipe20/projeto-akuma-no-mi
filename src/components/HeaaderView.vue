@@ -36,9 +36,9 @@
                     </div>
 
                     <div class="flex gap-4">
-                        <ButtonView :tag="span" class="flex justify-center items-center w-32 h-10 bg-purple-950 rounded-lg hover:bg-purple-900" />
+                        <ButtonView :tag="span" class="flex justify-center items-center w-32 h-10 bg-purple-950 rounded-lg hover:scale-110" />
 
-                        <ButtonView :tag="icon" class="flex justify-center items-center w-10 h-10 bg-white rounded-lg text-purple-900 hover:bg-gray-200"/>
+                        <ButtonView :tag="icon" class="flex justify-center items-center w-10 h-10 bg-white rounded-lg text-purple-900  hover:scale-110"/>
                     </div>
                 </div>
             </div>  

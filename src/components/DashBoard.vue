@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row justify-start items-start gap-0 p-0 m-0 relative">
-    <NavBar class="fixed"/>
+  <div class="flex flex-row justify-end items-start gap-0 p-0 m-0 relative w-screen">
+    <NavBar />
     <router-view />
   </div>
 </template>
