@@ -160,7 +160,7 @@ export default {
         justify-content: space-between;
         height: 100vh;
         width: 70vw;
-        max-width: 250px;
+        max-width: 260px;
         padding: 0;
         gap: 0;
     }

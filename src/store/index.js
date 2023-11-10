@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     trending : [],
-    alta : []
+    alta : null
   },
   getters: {
   },
@@ -14,7 +14,6 @@ export default createStore({
 
     getAlta : (state, data) => {
       state.alta = data
-      console.log(state.alta)
     }
   },
   actions: {

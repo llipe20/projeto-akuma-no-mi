@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-between items-center w-full h-4/5" :style="{ background: `url('https://image.tmdb.org/t/p/w1280${ movies && movies.length > 0 ? movies[value].backdrop_path : ''}')` }">
+    <div class="flex flex-col justify-between items-center w-full h-media bg-cover bg-no-repeat" :style="{ background: `url('https://image.tmdb.org/t/p/w1280${ movies && movies.length > 0 ? movies[value].backdrop_path : ''}')` }">
 
         <div class="vertical flex flex-col justify-between items-center w-full h-full">
 
