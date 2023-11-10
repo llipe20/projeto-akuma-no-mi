@@ -2,24 +2,29 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    movies : []
+    trending : [],
+    alta : []
   },
   getters: {
   },
   mutations: {
-    getData : (state, data) => {
-      state.movies = data
-      console.log(state.movies)
+    getTrending : (state, data) => {
+      state.trending = data
+    },
+
+    getAlta : (state, data) => {
+      state.alta = data
+      console.log(state.alta)
     }
   },
   actions: {
-     getMovie : async (context, endpoint) => {
+     getMovie : async ({ commit }, { endpoint, mutation }) => {
         const chave = 'aaee40741a8339ae752e5fefd0c915b9'
         const base = 'https://api.themoviedb.org/3'
         const req = await fetch(`${base}${endpoint}${chave}`)
         const res = await req.json()
 
-        context.commit('getData', res.results)
+        commit(`${mutation}`, res.results)
      }
   },
   modules: {

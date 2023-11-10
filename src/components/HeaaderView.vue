@@ -71,12 +71,14 @@ export default {
     methods : {
          Destaque() {
             this.value = Math.floor(Math.random() * 20)
-            this.movies = this.$store.state.movies
-            console.log(this.movies[this.value])
+            this.movies = this.$store.state.trending
         }
     },
     created() {
-        this.$store.dispatch('getMovie', '/trending/all/week?language=pt-BR&api_key=').then(() => {
+        this.$store.dispatch('getMovie', {
+            endpoint : '/trending/all/week?language=pt-BR&api_key=',
+            mutation : 'getTrending'
+        }).then(() => {
             this.Destaque()
         })
     }

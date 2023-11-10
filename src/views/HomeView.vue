@@ -11,6 +11,23 @@ export default {
 
     components : {
         HeaderView
+    },
+
+    data() {
+        return {
+
+        }
+    },
+
+    method: {
+
+    },
+
+    created() {
+        this.$store.dispatch('getMovie', {
+            endpoint : '/movie/top_rated?language=pt-BR&api_key=',
+            mutation : 'getAlta'
+        })
     }
 }
 </script>
