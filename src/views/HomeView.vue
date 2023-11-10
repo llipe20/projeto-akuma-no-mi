@@ -3,16 +3,21 @@
         <HeaderView />
 
         <!-- filmes em alta -->
-        <div class="flex items-center gap-5 min-w-full h-auto bg-purple-950 pl-10 pt-4 pb-4" v-if="hipes && hipes.length > 0">
-            <CardView v-for="hipe in hipes" :key="hipe.id" :movie="hipe" />
+        <div class="w-screen h-auto bg-white">
+            <div class="flex items-center gap-5 w-auto h-auto bg-purple-950 pl-10 pt-4 pb-4 overflow-scroll" v-if="hipes && hipes.length > 0">
+                <CardView v-for="hipe in hipes" :key="hipe.id" :movie="hipe" class="w-52"/>
+            </div>
+            <span v-else class="text-white">Carregando...</span>
         </div>
-        <span v-else class="text-white">Carregando...</span>
 
         <!-- recomendados -->
-         <div class="flex items-center gap-5 min-w-full h-auto bg-purple-950 pl-10 pt-4 pb-4" v-if="trending && trending.length > 0">
-            <CardView v-for="trend in trending" :key="trend.id" :movie="trend" />
+        <div class="w-full h-auto">
+            <div class="flex items-center gap-5 min-w-auto h-auto bg-purple-950 pl-10 pt-4 pb-4" v-if="trending && trending.length > 0">
+                <CardView v-for="trend in trending" :key="trend.id" :movie="trend" />
+            </div>
+            <span v-else class="text-white">Carregando...</span>
         </div>
-        <span v-else class="text-white">Carregando...</span>
+         
     </div>
 </template>
 <script>
