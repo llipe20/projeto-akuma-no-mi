@@ -3,9 +3,11 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     trending : [],
-    alta : null
+    alta : null,
+    favorite : []
   },
   getters: {
+    
   },
   mutations: {
     getTrending : (state, data) => {
@@ -14,6 +16,10 @@ export default createStore({
 
     getAlta : (state, data) => {
       state.alta = data
+    },
+
+    AddFavorite : (state, data) => {
+      state.favorite = data
     }
   },
   actions: {
@@ -24,7 +30,11 @@ export default createStore({
         const res = await req.json()
 
         commit(`${mutation}`, res.results)
-     }
+     },
+
+     GetMutation : ({commit}, data) => {
+      commit('AddFavorite', data)
+    }
   },
   modules: {
   }
