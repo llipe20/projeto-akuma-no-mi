@@ -49,8 +49,21 @@ export default {
 
   methods: {
     toggleFavorite() {
-      this.$store.dispatch('GetMutation', this.movie)
-      this.isFavorite = !this.isFavorite
+
+        this.movie.isFavorite = true
+        this.$store.dispatch('GetMutation', {
+            mutation : 'addFavorite',
+            data : this.movie 
+        })
+        this.isFavorite = !this.isFavorite
+
+        // Se não for mais favorito, remova-o do Vuex
+        if (!this.isFavorite) {
+            this.$store.dispatch('GetMutation', {
+                mutation: 'removeFavorite', 
+                data : this.movie.id
+            })
+        }
     }
   }
 }

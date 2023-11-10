@@ -54,16 +54,16 @@ export default {
 
     async mounted() {
         await this.$store.dispatch('getMovie', {
-            endpoint : '/movie/top_rated?language=pt-BR&api_key=',
-            mutation : 'getAlta'
-        })
-        this.hipes = this.$store.state.alta,
+            endpoint: '/movie/top_rated?language=pt-BR&api_key=',
+            mutation: 'getAlta'
+        });
+        this.hipes = this.$store.state.alta.map(movie => ({ ...movie, isFavorite: movie.isFavorite || false }));
 
         await this.$store.dispatch('getMovie', {
-            endpoint : '/trending/all/week?language=pt-BR&api_key=',
-            mutation : 'getTrending'
-        })
-        this.trending = this.$store.state.trending
+            endpoint: '/trending/all/week?language=pt-BR&api_key=',
+            mutation: 'getTrending'
+        });
+        this.trending = this.$store.state.trending.map(movie => ({ ...movie, isFavorite: movie.isFavorite || false }));
     }
 }
 </script>

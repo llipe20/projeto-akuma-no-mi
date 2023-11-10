@@ -18,8 +18,14 @@ export default createStore({
       state.alta = data
     },
 
-    AddFavorite : (state, data) => {
-      state.favorite = data
+    addFavorite : (state, data) => {
+      state.favorite.push(data)
+    },
+
+    removeFavorite: (state, id) => {
+      const obj = state.favorite.filter(movie => movie.id == id)
+      obj.isFavorite = false
+      state.favorite = state.favorite.filter(movie => movie.id != id)
     }
   },
   actions: {
@@ -32,8 +38,8 @@ export default createStore({
         commit(`${mutation}`, res.results)
      },
 
-     GetMutation : ({commit}, data) => {
-      commit('AddFavorite', data)
+     GetMutation : ({commit}, {mutation, data}) => {
+      commit(`${mutation}`, data)
     }
   },
   modules: {
