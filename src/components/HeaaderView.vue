@@ -72,15 +72,16 @@ export default {
          Destaque() {
             this.value = Math.floor(Math.random() * 20)
             this.movies = this.$store.state.trending
+            return true
         }
     },
     created() {
-        this.$store.dispatch('getMovie', {
-            endpoint : '/trending/all/week?language=pt-BR&api_key=',
-            mutation : 'getTrending'
-        }).then(() => {
-            this.Destaque()
-        })
+        const stop = setInterval(() => {
+            const gaia = this.Destaque()
+            if(gaia) {
+                clearInterval(stop)
+            }
+        }, 300)
     }
 }
 </script>

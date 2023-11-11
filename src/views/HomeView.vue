@@ -3,27 +3,27 @@
         <HeaderView />
 
         <!-- filmes em alta -->
-        <div class="w-full h-auto relative pl-2">
+        <div class=" flex justify-center items-center w-full h-auto relative pl-2">
 
             <ButtonView :tag="left" class="absolute flex justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
             <div class="flex items-center gap-2 w-auto h-auto pl-6 pt-4 pb-4 overflow-scroll" v-if="hipes && hipes.length > 0">
                 <CardView v-for="hipe in hipes" :key="hipe.id" :movie="hipe"/>
             </div>
-            <span v-else class="text-white">Carregando...</span>
+            <span v-else class="text-white w-full text-center">Carregando...</span>
 
             <ButtonView :tag="right" class="absolute flex justify-center items-center w-10 h-full bgr text-white top-0 right-0 opacity-40 hover:opacity-100"/>
         </div>
 
         <!-- recomendados -->
-        <div class="w-full h-auto relative pl-2">
+        <div class="flex justify-center items-center w-full h-auto relative pl-2">
 
             <ButtonView :tag="left" class="absolute flex justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
             <div class="flex items-center gap-5 min-w-auto h-auto pl-6 pt-4 pb-4 overflow-scroll" v-if="trending && trending.length > 0">
                 <CardView v-for="trend in trending" :key="trend.id" :movie="trend" />
             </div>
-            <span v-else class="text-white">Carregando...</span>
+            <span v-else class="text-white text-center w-full">Carregando...</span>
 
             <ButtonView :tag="right" class="absolute flex justify-center items-center w-10 h-full bgr text-white top-0 right-0 opacity-40 hover:opacity-100"/>
         </div>
@@ -33,7 +33,6 @@
 import HeaderView from '../components/HeaaderView.vue'
 import CardView from '../components/Card.vue'
 import ButtonView from '../components/Button.vue'
-import { mount } from '@vue/test-utils'
 
 export default {
     name : 'HomeView',
@@ -53,10 +52,20 @@ export default {
         }
     },
 
-    async mounted() {
-        setInterval(() => {
-            this.hipes = [...this.$store.state.alta];
-            this.trending = [...this.$store.state.trending];
+    methods : {
+        Destaque() {
+            this.hipes = [...this.$store.state.alta]
+            this.trending = [...this.$store.state.trending]
+            return true
+        }
+    },
+
+    mounted() {
+        const stop = setInterval(() => {
+            const gaia = this.Destaque()
+            if(gaia) {
+                clearInterval(stop)
+            }
         }, 500)
     }
 }
