@@ -7,7 +7,7 @@
 
             <ButtonView :tag="left" class="absolute flex justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
-            <div class="flex items-center gap-2 w-auto h-auto pl-6 pt-4 pb-4 overflow-scroll" v-if="hipes && hipes.length > 0">
+            <div class="flex items-center w-auto h-80 pl-6 pt-4 pb-4 overflow-scroll" v-if="hipes && hipes.length > 0">
                 <CardView v-for="hipe in hipes" :key="hipe.id" :movie="hipe"/>
             </div>
             <span v-else class="text-white w-full text-center">Carregando...</span>
@@ -20,7 +20,7 @@
 
             <ButtonView :tag="left" class="absolute flex justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
-            <div class="flex items-center gap-5 min-w-auto h-auto pl-6 pt-4 pb-4 overflow-scroll" v-if="trending && trending.length > 0">
+            <div class="flex items-center min-w-auto h-80 pl-6 pt-4 pb-4 overflow-scroll" v-if="trending && trending.length > 0">
                 <CardView v-for="trend in trending" :key="trend.id" :movie="trend" />
             </div>
             <span v-else class="text-white text-center w-full">Carregando...</span>

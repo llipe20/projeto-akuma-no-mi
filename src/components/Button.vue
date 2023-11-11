@@ -1,5 +1,5 @@
 <template>
-    <div v-html="tag">
+    <div v-html="tag" class="cursor-pointer">
         
     </div>
 </template>
