@@ -12,6 +12,18 @@ export default {
 
   components : {
     DashBoard
+  },
+
+  async created() {
+    await this.$store.dispatch('getMovie', {
+        endpoint: '/trending/all/week?language=pt-BR&api_key=',
+        mutation: 'getTrending'
+    })
+
+    await this.$store.dispatch('getMovie', {
+        endpoint: '/movie/top_rated?language=pt-BR&api_key=',
+        mutation: 'getAlta'
+    })
   }
 }
 </script>

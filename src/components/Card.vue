@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-col justify-center items-start gap-4 w-52 bg-gray-300 h-auto rounded-xl relative scale-95 hover:scale-100">
+  <div class="flex flex-col justify-center items-start w-52 h-auto rounded-xl relative scale-95 hover:scale-100 hover:border shadow">
     <div class="w-full h-52 bg-black rounded-t-xl bg-cover bg-no-repeat" :style="{'background-image': `url('https://image.tmdb.org/t/p/w154${movie.poster_path}')`}">
     </div>
 
-    <div class="w-52 h-24 gap-px pl-4 pr-4 pb-4 text-purple-950">
+    <div class="w-52 h-24 gap-px pl-4 pr-4 pb-4 text-purple-950 bg-gray-300 rounded-b-xl pt-2">
       <h1 class="text-lg font-bold">
         {{ movie ? movie.media_type == 'tv' ? movie.name : movie.title : 'Carregando...'}}
       </h1>

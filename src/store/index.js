@@ -3,8 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     trending : [],
-    alta : null,
-    favorite : []
+    alta : [],
+    favorite : [],
   },
   getters: {
     

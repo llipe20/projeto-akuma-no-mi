@@ -3,7 +3,7 @@
         <HeaderView />
 
         <!-- filmes em alta -->
-        <div class="w-full h-auto relative">
+        <div class="w-full h-auto relative pl-2">
 
             <ButtonView :tag="left" class="absolute flex justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
@@ -16,7 +16,7 @@
         </div>
 
         <!-- recomendados -->
-        <div class="w-full h-auto relative">
+        <div class="w-full h-auto relative pl-2">
 
             <ButtonView :tag="left" class="absolute flex justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
@@ -33,6 +33,7 @@
 import HeaderView from '../components/HeaaderView.vue'
 import CardView from '../components/Card.vue'
 import ButtonView from '../components/Button.vue'
+import { mount } from '@vue/test-utils'
 
 export default {
     name : 'HomeView',
@@ -43,8 +44,8 @@ export default {
 
     data() {
         return {
-            hipes : null,
-            trending : null,
+            hipes : [],
+            trending : [],
 
             left : '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>', 
 
@@ -53,17 +54,10 @@ export default {
     },
 
     async mounted() {
-        await this.$store.dispatch('getMovie', {
-            endpoint: '/movie/top_rated?language=pt-BR&api_key=',
-            mutation: 'getAlta'
-        });
-        this.hipes = this.$store.state.alta.map(movie => ({ ...movie, isFavorite: movie.isFavorite || false }));
-
-        await this.$store.dispatch('getMovie', {
-            endpoint: '/trending/all/week?language=pt-BR&api_key=',
-            mutation: 'getTrending'
-        });
-        this.trending = this.$store.state.trending.map(movie => ({ ...movie, isFavorite: movie.isFavorite || false }));
+        setInterval(() => {
+            this.hipes = [...this.$store.state.alta];
+            this.trending = [...this.$store.state.trending];
+        }, 500)
     }
 }
 </script>
