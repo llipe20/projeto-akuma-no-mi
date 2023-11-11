@@ -1,5 +1,5 @@
 <template>
-    <div class="flex container">
+    <div class="flex container shadow">
         <!-- CARTAZ DO FILME-->
         <div class="flex box-cartaz overflow-hidden border">
             <img 

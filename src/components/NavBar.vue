@@ -18,7 +18,10 @@
                 <nav class="flex nav">
                     <!-- nav da plataforma -->
                     <div class="flex nav-pag">
-                        <router-link to="/" class="flex link">
+                        <router-link 
+                            :to="{ name: '/' }" 
+                            :class="{ 'classe-ativa': isRotaAtual('/') }"
+                            class="flex link">
                             <!-- home link -->
                             <span class="material-symbols-outlined">
                                 movie
@@ -29,7 +32,11 @@
                         </router-link>
 
                         <!-- favorite link -->
-                        <router-link to="/favorite" class="flex link">
+                        <router-link 
+                            :to="{ name: '/favorite' }" 
+                            :class="{ 'classe-ativa': isRotaAtual('/') }"
+                            class="flex link">
+
                             <span class="material-symbols-outlined">
                                 favorite
                             </span>
@@ -39,7 +46,11 @@
                         </router-link>
 
                         <!-- Filmes link -->
-                        <router-link to="/trending" class="flex link">
+                        <router-link 
+                            :to="{ name: '/trending' }" 
+                            :class="{ 'classe-ativa': isRotaAtual('/') }"
+                            class="flex link">
+        
                             <span class="material-symbols-outlined">
                                 moving
                             </span>
@@ -135,11 +146,24 @@ export default {
                 icon.style.transition = 'all 1s'
                 container.style.transition = 'all 1s'
             })
+        },
+
+        
+        isRotaAtual(rota) {
+            return this.$route.name == rota;
         }
     },
 
-    mounted() {
-       
+    watch: {
+        $route(to, from) {
+        // Captura mudanças na rota
+        console.log('Rota atual:', to.path);
+        }
+    },
+
+    created() {
+        // Obtém a rota ao renderizar
+        console.log('Rota atual (ao renderizar):', this.$route.path);
     }
 }
 </script>
@@ -202,7 +226,7 @@ export default {
         width: 75%;
     }
 
-    .link:hover {
+    .link:hover, .classe-ativa{
         font-weight: bold;
         color: white;
     }

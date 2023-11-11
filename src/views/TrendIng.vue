@@ -22,7 +22,7 @@
             v-if="trending && trending.length > 0"
             :movie="trending[0]"
         />
-        <span v-else class="text-white text-center">Carregando..</span>
+        <span v-else class="text-white w-full text-center">Carregando..</span>
     </div>
 </template>
 
