@@ -1,5 +1,8 @@
 <template>
-    <div class="flex justify-between items-center w-full h-20 text-white pr-8 pl-10 max-md:justify-end">
+    <div 
+        class="flex justify-between items-center w-5/6 h-20 text-white pr-8 pl-10 max-md:justify-end fixed"
+        :class="{ 'mahoraga': isScroll() }"
+    >
         <div class="flex justify-center items-center gap-10 h-full max-md:hidden">
             <a href="#" class="hover:border-b">Movies</a>
             <a href="#" class="hover:border-b">Series</a>
@@ -22,6 +25,26 @@
 
 <script>
 export default {
-    name : 'NavGation'
+    name : 'NavGation',
+
+    mounted() {
+        window.addEventListener('scroll', this.isScroll);
+    },
+
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.isScroll);
+    },
+
+    methods : {
+        isScroll() {
+            return window.scrollY > 5
+        },
+    }
 }
 </script>
+
+<style scoped>
+    .mahoraga {
+        background-color: red;
+    }
+</style>

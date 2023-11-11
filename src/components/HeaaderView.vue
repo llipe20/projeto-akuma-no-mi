@@ -7,6 +7,8 @@
 
             <div class="horizontal flex flex-col justify-between items-center w-full h-full">
                 <NavGation />
+
+                <div class="h-20 w-full"></div>
                 
                 <!-- Box de informações de filmes  -->
                 <div class="flex flex-col justify-start gap-5 text-white mb-28 pl-10 w-full text-lg">
@@ -38,9 +40,14 @@
                     </div>
 
                     <div class="flex gap-4">
-                        <ButtonView :tag="span" class="flex justify-center items-center w-32 h-10 bg-purple-950 rounded-lg hover:scale-110" />
+                        <ButtonView 
+                            :tag="span"
+                            @click="LeeVsGaara()" 
+                            class="flex justify-center items-center w-36 h-12 bg-purple-950 rounded-lg hover:scale-110" />
 
-                        <ButtonView :tag="icon" class="flex justify-center items-center w-10 h-10 bg-white rounded-lg text-purple-900  hover:scale-110"/>
+                        <ButtonView 
+                            :tag="icon" 
+                            class="flex justify-center items-center w-12 h-12 bg-white rounded-lg text-purple-900  hover:scale-110"/>
                     </div>
                 </div>
             </div>  
@@ -75,8 +82,13 @@ export default {
             this.value = Math.floor(Math.random() * 20)
             this.movies = this.$store.state.trending
             return true
+        },
+
+        LeeVsGaara() {
+            window.open('https://www.youtube.com/watch?v=VgDgWzBL7s4', '_blank')
         }
     },
+
     created() {
         const stop = setInterval(() => {
             const gaia = this.Destaque()

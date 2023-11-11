@@ -19,8 +19,8 @@
                     <!-- nav da plataforma -->
                     <div class="flex nav-pag">
                         <router-link 
-                            :to="{ name: '/' }" 
-                            :class="{ 'classe-ativa': isRotaAtual('/') }"
+                            :to="{ name: 'home' }" 
+                            :class="{ 'classe-ativa': isRotaAtual('home') }"
                             class="flex link">
                             <!-- home link -->
                             <span class="material-symbols-outlined">
@@ -33,8 +33,8 @@
 
                         <!-- favorite link -->
                         <router-link 
-                            :to="{ name: '/favorite' }" 
-                            :class="{ 'classe-ativa': isRotaAtual('/') }"
+                            :to="{ name: 'favorite' }" 
+                            :class="{ 'classe-ativa': isRotaAtual('favorite') }"
                             class="flex link">
 
                             <span class="material-symbols-outlined">
@@ -47,8 +47,8 @@
 
                         <!-- Filmes link -->
                         <router-link 
-                            :to="{ name: '/trending' }" 
-                            :class="{ 'classe-ativa': isRotaAtual('/') }"
+                            :to="{ name: 'trending' }" 
+                            :class="{ 'classe-ativa': isRotaAtual('trending') }"
                             class="flex link">
         
                             <span class="material-symbols-outlined">
@@ -148,22 +148,9 @@ export default {
             })
         },
 
-        
         isRotaAtual(rota) {
             return this.$route.name == rota;
         }
-    },
-
-    watch: {
-        $route(to, from) {
-        // Captura mudanças na rota
-        console.log('Rota atual:', to.path);
-        }
-    },
-
-    created() {
-        // Obtém a rota ao renderizar
-        console.log('Rota atual (ao renderizar):', this.$route.path);
     }
 }
 </script>

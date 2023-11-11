@@ -50,9 +50,14 @@
 
             <!-- Box de botões -->
             <div class="flex box-botton text-white gap-5">
-                <ButtonView :tag="span" class="flex justify-center items-center w-32 h-12 bg-purple-950 rounded-lg hover:scale-110 cursor-pointer" />
+                <ButtonView 
+                    :tag="span" 
+                    @click="LeeVsGaara()"
+                    class="flex justify-center items-center w-32 h-12 bg-purple-950 rounded-lg hover:scale-110 cursor-pointer" />
 
-                <ButtonView :tag="icon" class="flex justify-center items-center w-12 h-12 bg-white rounded-lg text-purple-900  hover:scale-110 cursor-pointer"/>
+                <ButtonView 
+                    :tag="icon" 
+                    class="flex justify-center items-center w-12 h-12 bg-white rounded-lg text-purple-900  hover:scale-110 cursor-pointer"/>
             </div>
         </div>
     </div>
@@ -78,6 +83,12 @@ export default {
 
             icon : '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /><span class="material-symbols-outlined">favorite</span>'
         }
+    },
+
+    methods : {
+        LeeVsGaara() {
+            window.open('https://www.youtube.com/watch?v=VgDgWzBL7s4', '_blank')
+        }
     }
 }
 </script>
@@ -91,7 +102,7 @@ export default {
     }
 
     .container {
-        background-image: linear-gradient(to left, #2f0451, #210139);
+        background-image: linear-gradient(to left, #2f0451, #0e0219, #1c0130);
         flex-direction: column;
         padding: 20px;
         margin-left: 10px;
@@ -99,12 +110,13 @@ export default {
         height: auto;
         border-radius: 15px;
         gap: 0;
+        border: 1px solid white;
     }
 
     .box-cartaz {
         height: auto;
         width: auto;
-        border: 2px solid rgba(128, 128, 128, 0.215);
+        border: 1px solid rgba(128, 128, 128, 0.215);
         border-radius: 15px;
     }
 
