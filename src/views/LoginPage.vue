@@ -16,8 +16,8 @@
 
       <!-- FORM DE LOGIN --> 
       <form 
-        v-if="false" 
-        @submit="Login()"
+        v-if="true" 
+        @submit="Login"
         action="" 
         class="flex flex-col justify-center items-center gap-2 w-4/5 h-auto p-4 md:w-2/5 rounded-xl">
 
@@ -26,6 +26,7 @@
             :name="'email'"
             :id="'email'"
             :placeholder="'E-mail'"
+            v-model="email"
             class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4 mt-2"
             autofocus
         />
@@ -35,6 +36,7 @@
             :name="'senha'"
             :id="'senha'"
             :placeholder="'Senha'"
+            v-model="senha"
             class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
         />
 
@@ -63,6 +65,7 @@
             :name="'name'"
             :id="'name'"
             :placeholder="'Apelido'"
+            v-model="nome"
             class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
             autofocus
         />
@@ -72,6 +75,7 @@
             :name="'email'"
             :id="'email'"
             :placeholder="'E-mail'"
+            v-model="email"
             class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
         />
 
@@ -80,6 +84,7 @@
             :name="'senha'"
             :id="'senha'"
             :placeholder="'Senha'"
+            v-model="senha"
             class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
         />
 
@@ -104,6 +109,38 @@ export default {
 
   components : {
     InputView
+  },
+
+  data() {
+    return {
+      nome : '',
+      email : '',
+      senha : ''
+    }
+  },
+
+  methods : {
+     async Login(event) {
+      event.preventDefault()
+
+      if(this.email != '' || this.senha != '') {
+        const req = await fetch('http://localhost:3000/users')
+        const res = await req.json()
+        const login = res.find((user) => user.email == this.email)
+        
+        if(!login || login == null) {
+          // MODAL DE AVISO - usuário não existe
+        } else {
+          if(login.senha == this.senha) {
+            // ABRIR HOME
+          } else {
+            // MODAL DE AVISO - senha errada
+          }
+        } 
+      } else {
+        // MODAL DE AVISO - preencher campos
+      }
+    }
   }
 }
 </script>

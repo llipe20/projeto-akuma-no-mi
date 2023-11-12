@@ -1,5 +1,11 @@
 <template>
-    <input :type="type" :name="name" :id="id" :value="value" :placeholder="placeholder">
+    <input 
+        :type="type" 
+        :name="name" 
+        :id="id" 
+        :placeholder="placeholder"
+        :value="modelValue" 
+        @input="$emit('update:modelValue', $event.target.value)">
 </template>
 
 <script>
@@ -11,7 +17,7 @@ export default {
         name : String,
         id : String,
         placeholder : String,
-        value : String
+        modelValue : String
     },
 }
 </script>

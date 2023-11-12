@@ -37,7 +37,7 @@ export default {
         window.addEventListener('scroll', this.Gaia)
     },
 
-    beforeDestroy() {
+    beforeUnmount() {
         window.removeEventListener('scroll', this.Gaia);
     },
 
