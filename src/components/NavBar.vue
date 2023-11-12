@@ -27,7 +27,7 @@
                                 movie
                             </span>
                             <span class="text">
-                                Home
+                                Inicio
                             </span>
                         </router-link>
 
@@ -41,7 +41,7 @@
                                 favorite
                             </span>
                             <span class="text">
-                                Fovorite
+                                Favoritos
                             </span>
                         </router-link>
 
@@ -55,7 +55,7 @@
                                 moving
                             </span>
                             <span class="text">
-                                Trending
+                                Em alta
                             </span>
                         </router-link>
 
@@ -65,7 +65,7 @@
                                 calendar_today
                             </span>
                             <span class="text">
-                                Coming soon
+                                Lançamentos
                             </span>
                         </a>
                     </div>
@@ -77,7 +77,7 @@
                                 group
                             </span>
                             <span class="text">
-                                Community
+                                Comunidade
                             </span>
                         </a>
                         <a href="#" class="flex link">
@@ -85,7 +85,7 @@
                                 forum
                             </span>
                             <span class="text">
-                                Social
+                                Sociais
                             </span>
                         </a>
                     </div>
@@ -97,7 +97,7 @@
                                 settings
                             </span>
                             <span class="text">
-                                Settings
+                                Configurações
                             </span>
                         </router-link>
                         <span @click="GetLogin()" class="flex link">
@@ -105,7 +105,7 @@
                                 logout
                             </span>
                             <span class="text">
-                                Logout
+                                Sair
                             </span>
                         </span>
                     </div>

@@ -1,103 +1,83 @@
 <template>
-  <div class="flex flex-col gap-8 justify-center items-center w-screen h-screen bg">
-    <div class="flex flex-col justify-center items-center text-white gap-2 w-full">
-      <div class="flex gap-2 text-2xl">
-          <span>
-            BRAZINO
-          </span>
-          <span class="text-purple-700 font-bold">
-            777
-          </span>
-      </div>
-      <span class="text-base text-center">
-          Se sua estrela não brilha, não tente apagar a minha!
-      </span>
+  <div class="flex justify-center items-center w-screen h-screen bg">
+    <div class="flex flex-col gap-4 justify-center items-center w-2/5 h-auto bg-black rounded-xl pb-4 pt-8">
+        <div class="flex flex-col justify-center items-center text-white gap-2 w-full">
+            <div class="flex gap-2 text-2xl">
+                <span>
+                  BRAZINO
+                </span>
+                <span class="text-purple-700 font-bold">
+                  777
+                </span>
+            </div>
+            <span class="text-base text-center">
+                Se sua estrela não brilha, não tente apagar a minha!
+            </span>
+        </div>
+
+        <!-- FORMULÁRIO -->
+        <form 
+            @submit.prevent="isLoginForm ? login() : addUser()" 
+            action="" 
+            class="flex flex-col justify-center items-center gap-4 w-full h-auto p-4 md:w-full rounded-xl text-black"
+        >
+            <div
+                v-if="!isLoginForm" 
+                class="flex justify-between items-center w-1/2 text-white"
+            >
+              <label for="name">Nome: </label>
+              <InputView 
+                  :type="'name'" 
+                  :name="'name'" 
+                  :id="'name'" 
+                  :placeholder="'Apelido'" 
+                  v-model="nome" 
+                  class="w-58 md:2/5 h-10 border-0 outline-0 bg-white rounded-lg pl-4" 
+                  autofocus
+              />
+            </div>
+            
+            <div class="flex justify-between items-center w-1/2">
+              <label for="name" class="text-white">Email:</label>
+              <InputView 
+                  :type="'email'" 
+                  :name="'email'" 
+                  :id="'email'" 
+                  :placeholder="'E-mail'" 
+                  v-model="email" 
+                  class="w-58 md:2/5 h-10 border-0 outline-0 bg-white rounded-lg pl-4" 
+                  autofocus
+              />
+            </div>
+
+            <div class="flex justify-between items-center w-1/2">
+              <label for="senha" class="text-white">Senha: </label>
+              <InputView 
+                  :type="'password'" 
+                  :name="'senha'" 
+                  :id="'senha'" 
+                  :placeholder="'Senha'" 
+                  v-model="senha" 
+                  class="w-58 md:2/5 h-10 border-0 outline-0 bg-white rounded-lg pl-4" 
+              />
+            </div>
+
+            <a v-if="isLoginForm" href="#" class="w-2/5 text-white text-center mt-1 mb-1 hover:underline">Esqueceu a senha?</a>
+
+            <InputView 
+                :type="'submit'" 
+                :name="'submit'" 
+                :id="'submit'" 
+                :value="isLoginForm ? 'Entrar' : 'Criar conta'" 
+                class="w-56 md:2/5 h-10 border-0 outline-0 bg-purple-950 text-white rounded-lg cursor-pointer scale-95 hover:scale-100 shadow" 
+            />
+
+            <a href="#" class="w-2/5 text-white text-center mb-2 hover:underline">
+                {{ isLoginForm ? 'Criar conta' : 'Voltar' }}
+            </a>
+        </form>
     </div>
-
-      <!-- FORM DE LOGIN --> 
-      <form 
-        v-if="true" 
-        @submit="Login"
-        action="" 
-        class="flex flex-col justify-center items-center gap-2 w-4/5 h-auto p-4 md:w-2/5 rounded-xl">
-
-        <InputView 
-            :type="'email'"
-            :name="'email'"
-            :id="'email'"
-            :placeholder="'E-mail'"
-            v-model="email"
-            class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4 mt-2"
-            autofocus
-        />
-
-        <InputView 
-            :type="'password'"
-            :name="'senha'"
-            :id="'senha'"
-            :placeholder="'Senha'"
-            v-model="senha"
-            class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
-        />
-
-        <a href="#" class="w-2/5 text-white text-center mt-2 mb-2 hover:underline">Esqueceu a senha?</a>
-
-        <InputView 
-            :type="'submit'"
-            :name="'submit'"
-            :id="'submit'"
-            :value="'Entrar'"
-            class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-purple-950 text-white rounded-lg cursor-pointer scale-95 hover:scale-100 shadow"
-        />
-
-        <a href="#" class="w-2/5 text-white text-center mt-2 mb-2 hover:underline">Criar conta</a>
-      </form>
-
-      <!-- FORM DE CRIAR CONTA -->
-      <form 
-        v-else
-        @submit="AddUser()" 
-        action="" 
-        class="flex flex-col justify-center items-center gap-4 w-4/5 h-auto p-4 md:w-2/5 rounded-xl">
-
-        <InputView 
-            :type="'name'"
-            :name="'name'"
-            :id="'name'"
-            :placeholder="'Apelido'"
-            v-model="nome"
-            class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
-            autofocus
-        />
-
-        <InputView 
-            :type="'email'"
-            :name="'email'"
-            :id="'email'"
-            :placeholder="'E-mail'"
-            v-model="email"
-            class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
-        />
-
-        <InputView 
-            :type="'password'"
-            :name="'senha'"
-            :id="'senha'"
-            :placeholder="'Senha'"
-            v-model="senha"
-            class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-white text-purple-950 rounded-lg pl-4"
-        />
-
-        <InputView 
-            :type="'submit'"
-            :name="'submit'"
-            :id="'submit'"
-            :value="'Criar conta'"
-            class="w-3/5 md:2/5 h-10 border-0 outline-0 bg-purple-950 text-white rounded-lg cursor-pointer scale-95 hover:scale-100 shadow"
-        />
-
-        <a href="#" class="w-2/5 text-white text-center mt-2 mb-2 hover:underline">Voltar</a>
-    </form>
+    
   </div>
 </template>
 
@@ -115,7 +95,8 @@ export default {
     return {
       nome : '',
       email : '',
-      senha : ''
+      senha : '',
+      isLoginForm : true
     }
   },
 
@@ -147,6 +128,6 @@ export default {
 
 <style scoped>
   .bg {
-    background-image: linear-gradient( 45deg, rgb(22, 2, 38), rgb(58, 2, 61), rgb(0, 0, 0));
+    background-image: linear-gradient( 45deg, rgb(22, 2, 38), rgb(38, 1, 41), rgb(0, 0, 0));
   }
 </style>
