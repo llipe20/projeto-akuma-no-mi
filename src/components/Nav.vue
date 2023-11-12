@@ -48,9 +48,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    .mahoraga {
-        background-color: red;
-    }
-</style>

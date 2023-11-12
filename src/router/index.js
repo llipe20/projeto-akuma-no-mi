@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import FavoRite from '../views/FavoRite.vue'
 import HomeView from '../views/HomeView.vue'
 import TrendIng from '../views/TrendIng.vue'
+import LoginPage from '../views/LoginPage.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/trending',
     name: 'trending',
     component: TrendIng
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPage
   }
 ]
 

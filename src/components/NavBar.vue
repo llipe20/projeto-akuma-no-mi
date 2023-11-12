@@ -100,14 +100,14 @@
                                 Settings
                             </span>
                         </router-link>
-                        <a href="#" class="flex link">
+                        <span @click="GetLogin()" class="flex link">
                             <span class="material-symbols-outlined">
                                 logout
                             </span>
                             <span class="text">
                                 Logout
                             </span>
-                        </a>
+                        </span>
                     </div>
                 </nav>
             </div>
@@ -150,6 +150,13 @@ export default {
 
         isRotaAtual(rota) {
             return this.$route.name == rota;
+        },
+
+        GetLogin() {
+            this.$store.dispatch('GetMutation', {
+                mutation : 'UpdateLogin',
+                data : true
+            })
         }
     }
 }

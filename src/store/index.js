@@ -5,11 +5,17 @@ export default createStore({
     trending : [],
     alta : [],
     favorite : [],
+    login : true
   },
   getters: {
     
   },
   mutations: {
+
+    UpdateLogin : (state, data) => {
+      state.login = data
+    },
+
     getTrending : (state, data) => {
       state.trending = data
     },
