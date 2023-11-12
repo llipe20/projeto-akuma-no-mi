@@ -1,7 +1,7 @@
 <template>
     <div 
         class="flex justify-between items-center w-5/6 h-20 text-white pr-8 pl-10 max-md:justify-end fixed"
-        :class="{ 'mahoraga': isScroll() }"
+        :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
     >
         <div class="flex justify-center items-center gap-10 h-full max-md:hidden">
             <a href="#" class="hover:border-b">Movies</a>
@@ -27,17 +27,23 @@
 export default {
     name : 'NavGation',
 
+    data() {
+        return {
+            isScroll : false
+        }
+    },
+
     mounted() {
-        window.addEventListener('scroll', this.isScroll);
+        window.addEventListener('scroll', this.Gaia)
     },
 
     beforeDestroy() {
-        window.removeEventListener('scroll', this.isScroll);
+        window.removeEventListener('scroll', this.Gaia);
     },
 
     methods : {
-        isScroll() {
-            return window.scrollY > 5
+        Gaia() {
+            this.isScroll = window.scrollY > 5
         },
     }
 }
