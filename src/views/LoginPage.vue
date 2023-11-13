@@ -72,10 +72,16 @@
                 class="w-56 md:2/5 h-10 border-0 outline-0 bg-purple-950 text-white rounded-lg cursor-pointer scale-95 hover:scale-100 shadow" 
             />
 
-            <a href="#" class="w-2/5 text-white text-center mb-2 hover:underline">
+            <a href="#" class="w-2/5 text-white text-center mb-2 hover:underline" @click="llpe">
                 {{ isLoginForm ? 'Criar conta' : 'Voltar' }}
             </a>
         </form>
+
+        <ModalTV
+          class="absolute right-10 top-10" 
+          :bg="'bg-red-500'"
+          :msg="'Usuário errado!'"
+        />
     </div>
     
   </div>
@@ -83,12 +89,13 @@
 
 <script>
 import InputView from '../components/Input.vue'
+import ModalTV from '../components/Modal.vue'
 
 export default {
   name: 'LoginPage',
 
   components : {
-    InputView
+    InputView, ModalTV
   },
 
   data() {
@@ -101,6 +108,11 @@ export default {
   },
 
   methods : {
+
+      llpe() {
+          this.isLoginForm = !this.isLoginForm
+      },
+
      async Login(event) {
       event.preventDefault()
 
