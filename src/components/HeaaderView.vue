@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="flex flex-col justify-between items-center w-full h-media bg-cover bg-no-repeat" 
+        class="flex flex-col justify-between items-center w-full h-media bg-cover bg-no-repeat bg-center" 
         :style="{ background: `url('https://image.tmdb.org/t/p/w1280${ movies && movies.length > 0 ? movies[value].backdrop_path : ''}')` }">
 
         <div class="vertical flex flex-col justify-between items-center w-full h-full">
@@ -12,7 +12,7 @@
                 
                 <!-- Box de informações de filmes  -->
                 <div class="flex flex-col justify-start gap-5 text-white mb-28 pl-10 w-full text-lg">
-                    <h1 class="text-4xl font-bold">
+                    <h1 class="text-3xl md:text-4xl font-bold w-5/6">
                         {{ movies && movies.length > 0 ? movies[value].media_type == 'tv' ? movies[value].name : movies[value].title : 'Carregando...' }}
                     </h1>
 
@@ -33,7 +33,7 @@
                         </span>
                     </div>
 
-                    <div class="w-1/3">
+                    <div class="w-5/6  md:w-1/3">
                         <p>
                             {{ movies && movies.length > 0 ? movies[value].overview.slice(0, 100) + ' ...' : 'Carregando...' }}
                         </p>

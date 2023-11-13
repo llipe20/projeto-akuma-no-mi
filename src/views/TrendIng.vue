@@ -1,8 +1,8 @@
 <template>
-    <div class="flex flex-wrap justify-start items-start gap-5 w-5/6 min-h-screen text-lg bg-black p-8">
+    <div class="flex flex-wrap justify-start items-start gap-5 w-full md:w-80-vw min-h-screen text-lg bg-black p-8 mt-8 mb-4 md:mt-0">
 
         <!-- recomendados -->
-        <div class="flex justify-center w-full h-80 relative pl-2">
+        <div class="flex justify-center w-full relative pl-2">
 
             <ButtonView :tag="left" class="absolute flex justify-center items-center w-8 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 z-10"/>
 

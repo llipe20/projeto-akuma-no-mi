@@ -8,7 +8,9 @@ module.exports = {
     extend: {
       spacing: {
         'media': '75vh',
-        '58' : '235px'
+        '58' : '235px',
+        '80-vw': '83%',
+        '20-vw':'20%',
       }
     },
   },

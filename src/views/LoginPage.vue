@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center w-screen h-screen bg">
-    <div class="flex flex-col gap-4 justify-center items-center w-2/5 h-auto bg-black rounded-xl pb-4 pt-8">
+    <div class="flex flex-col gap-4 justify-center items-center w-5/6 md:w-2/5 h-auto bg-black rounded-xl pb-4 pt-8">
         <div class="flex flex-col justify-center items-center text-white gap-2 w-full">
             <div class="flex gap-2 text-2xl">
                 <span>
@@ -23,7 +23,7 @@
         >
             <div
                 v-if="!isLoginForm" 
-                class="flex justify-between items-center w-1/2 text-white"
+                class="flex justify-between items-center w-72 text-white"
             >
               <label for="name">Nome: </label>
               <InputView 
@@ -37,7 +37,7 @@
               />
             </div>
             
-            <div class="flex justify-between items-center w-1/2">
+            <div class="flex justify-between items-center w-72">
               <label for="name" class="text-white">Email:</label>
               <InputView 
                   :type="'email'" 
@@ -50,7 +50,7 @@
               />
             </div>
 
-            <div class="flex justify-between items-center w-1/2">
+            <div class="flex justify-between items-center w-72">
               <label for="senha" class="text-white">Senha: </label>
               <InputView 
                   :type="'password'" 

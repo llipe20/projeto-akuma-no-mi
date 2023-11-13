@@ -1,12 +1,12 @@
 <template>
     <div 
-        class="flex justify-between items-center w-5/6 h-20 text-white pr-8 pl-10 max-md:justify-end fixed"
+        class="flex justify-between items-center w-full md:w-5/6 h-20 text-white pr-8 pl-10 max-md:justify-end fixed z-20"
         :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
     >
         <div class="flex justify-center items-center gap-10 h-full max-md:hidden">
-            <a href="#" class="hover:border-b">Movies</a>
-            <a href="#" class="hover:border-b">Series</a>
-            <a href="#" class="hover:border-b">Documentaries</a>
+            <a href="#" class="hover:border-b">Filmes</a>
+            <a href="#" class="hover:border-b">Séries</a>
+            <a href="#" class="hover:border-b">Lançamentos</a>
         </div>
 
         <div class="flex items-center gap-10 hover:cursor-pointer">

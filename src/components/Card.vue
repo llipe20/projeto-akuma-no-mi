@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-col justify-center items-start w-52 h-auto rounded-xl relative scale-90 hover:scale-95 hover:border hover:border-2 shadow cursor-pointer">
+  <div class="flex flex-col justify-center items-start w-44 md:w-52 h-auto rounded-xl relative scale-90 md:hover:scale-95 hover:border hover:border-2 shadow cursor-pointer">
 
-    <div class="w-full h-52 bg-black rounded-t-xl bg-cover bg-no-repeat" :style="{ 'background-image': `url('https://image.tmdb.org/t/p/w154${localMovie.poster_path}')` }">
+    <div class="w-full h-48 md:56 bg-black rounded-t-xl bg-cover bg-no-repeat" :style="{ 'background-image': `url('https://image.tmdb.org/t/p/w154${localMovie.poster_path}')` }">
     </div>
 
-    <div class="w-52 h-24 gap-px pl-4 pr-4 pb-4 text-purple-950 bg-gray-300 rounded-b-xl pt-2">
-        <h1 class="text-lg font-bold">
-            {{ localMovie ? localMovie.media_type == 'tv' ? localMovie.name : localMovie.title : 'Carregando...' }}
+    <div class="w-44 md:w-52 h-22 md:h-24 gap-px pl-4 pr-4 pb-4 text-purple-950 bg-gray-300 rounded-b-xl pt-2">
+        <h1 class="text-base md:text-lg font-bold">
+            {{ localMovie ? localMovie.media_type == 'tv' ? localMovie.name.slice(0,25) : localMovie.title.slice(0,20) : 'Carregando...' }}
         </h1>
         <span>
             {{ localMovie ? localMovie.media_type == 'tv' ? new Date(localMovie.first_air_date).getFullYear() : new Date(localMovie.release_date).getFullYear() : 'Carregando...' }}
