@@ -2,7 +2,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
         <!-- NAV BAR LATERAL -->
-        <section class="md:flex nav-bar hidden border-r border-gray-700 fixed left-0 top-0 w-2/6 md:w-20-vw">
+        <section 
+            @click="Open"
+            :class="{ 'hidden' : isHidden }"
+            class="md:flex nav-bar border-r border-gray-700 fixed left-0 top-0 w-2/6 md:w-20-vw z-30" id="nav-bar">
             <div class="flex container">
                 <!-- logo -->
                 <div class="flex logo">
@@ -113,7 +116,10 @@
             </div>
         </section>
 
-        <span class="md:hidden text-white text-lg absolute left-8 top-8" id="open">
+        <span
+            :class="{ 'hidden' : !isHidden }" 
+            class="md:hidden text-white text-lg fixed left-8 top-8 z-30 cursor-pointer" id="open" 
+            @click="Open">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
@@ -124,28 +130,15 @@
 export default {
     name : 'NavBar',
 
+    data() {
+        return {
+            isHidden : true
+        }
+    },
+
     methods : {
-        Esconder() {
-            // Evento para esconder a barra
-            const btn = document.querySelector(".btn")
-            btn.addEventListener("click", () => {
-                const icon = document.getElementById("arrow")
-                const container = document.querySelector(".container")
-                const nav = document.querySelector(".nav-bar")
-
-                if(icon.textContent == 'chevron_left') {
-                    nav.style.width = '40px'
-                    container.style.display = 'none'
-                    icon.textContent = 'chevron_right'
-                } else {
-                    container.style.display = 'flex'
-                    icon.textContent = 'chevron_left'
-                    nav.style.width = '100%'
-                }
-
-                icon.style.transition = 'all 1s'
-                container.style.transition = 'all 1s'
-            })
+        Open() {
+            this.isHidden = !this.isHidden
         },
 
         isRotaAtual(rota) {
