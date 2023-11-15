@@ -4,7 +4,8 @@
       "id" : 1,
       "name": "Felipe",
       "email": "silvahlipe@gmail.com",
-      "senha": "1503"
+      "senha": "1503",
+      "avatar" : "/sanji.jpg"
     }
   ]
 }

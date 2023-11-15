@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center items-center w-screen h-screen bg">
-    <div class="flex flex-col gap-4 justify-center items-center w-5/6 md:w-2/5 h-auto bg-black rounded-xl pb-4 pt-8">
+  <div class="flex justify-center items-center w-screen h-screen bg-black">
+    <div class="flex flex-col gap-4 justify-center items-center w-5/6 md:w-2/5 h-auto bg-black rounded-xl pb-4 pt-8 border">
         <div class="flex flex-col justify-center items-center text-white gap-2 w-full">
             <div class="flex gap-2 text-2xl">
                 <span>
@@ -24,19 +24,37 @@
             <!-- ICONS -->  
             <div
                 v-if="!isLoginForm" 
-                class="flex justify-center items-center gap-2 p-2 w-full h-auto">
-                <div class="h-16 w-16 bg-red-500 hover:border">
-
+                class="flex justify-center items-center gap-4 p-2 w-full h-auto">
+                <div 
+                  class="h-16 w-16 bg-purple-950 border border-2 hover:border-purple-950 hover:border-4"
+                  @click="Select('icon-1')"
+                  id="icon-1"
+                >
+                    <img src="/sanji.jpg" alt="avatar-sanji">
                 </div>
 
-                <div class="h-16 w-16 bg-red-500 hover:border">
-
+                <div 
+                  class="h-16 w-16 bg-red-500 border border-2 hover:border-purple-950 hover:border-4"
+                  @click="Select('icon-2')"
+                  id="icon-2"
+                >
+                    <img src="/usopp.jpg" alt="avatar-usopp">
                 </div>
-                <div class="h-16 w-16 bg-red-500 hover:border">
 
+                <div 
+                  class="h-16 w-16 bg-red-500 border border-2 hover:border-purple-950 hover:border-4"
+                  @click="Select('icon-3')"
+                  id="icon-3"
+                >
+                    <img src="/nami.jpg" alt="avatar-nami">
                 </div>
-                <div class="h-16 w-16 bg-red-500 hover:border border-lg">
 
+                <div 
+                  class="h-16 w-16 bg-red-500 border border-2 hover:border-purple-950 hover:border-4"
+                  @click="Select('icon-4')"
+                  id="icon-4"
+                >
+                    <img src="/buggy.jpg" alt="avatar-buggy">
                 </div>
             </div>
 
@@ -51,7 +69,8 @@
                   :id="'name'" 
                   :placeholder="'Apelido'" 
                   v-model="nome" 
-                  class="w-58 md:2/5 h-10 border-0 outline-0 bg-white rounded-lg pl-4" 
+                  :max="20"
+                  class="w-58 md:2/5 h-10 border-0 outline-0 bg-white rounded-lg pl-4 text-black" 
                   autofocus
               />
             </div>
@@ -125,11 +144,42 @@ export default {
       isLoginForm : true,
       fundo : '',
       msg : '',
-      isModal : false
+      isModal : false,
+      icon : ''
     }
   },
 
   methods : {
+
+      Select(icon) {
+          const icons = ['icon-1', 'icon-2', 'icon-3', 'icon-4'];
+          icons.forEach((iconId) => {
+            const currentIcon = document.getElementById(iconId);
+            currentIcon.classList.remove('border-4', 'border-purple-950');
+            currentIcon.classList.add('border-2', 'border-white');
+          });
+
+          const selectedIcon = document.getElementById(icon);
+          selectedIcon.classList.remove('border-2', 'border-white');
+          selectedIcon.classList.add('border-4', 'border-purple-950');
+
+          switch (icon) {
+            case 'icon-1':
+              this.icon = '/sanji.jpg';
+              break;
+            case 'icon-2':
+              this.icon = '/usopp.jpg';
+              break;
+            case 'icon-3':
+              this.icon = '/nami.jpg';
+              break;
+            case 'icon-4':
+              this.icon = '/buggy.jpg';
+              break;
+            default:
+              break;
+          }
+      },
 
       show(fundo, msg) {
         this.fundo = fundo
@@ -162,6 +212,10 @@ export default {
         } else {
           if(login.senha == this.senha) {
             // ABRIR HOME 
+            this.$store.dispatch('GetMutation', {
+              mutation : 'GetUser',
+              data : login
+            })
             console.log('login certo')
 
             this.email = ''
@@ -228,4 +282,8 @@ export default {
   .bg {
     background-image: linear-gradient( 45deg, rgb(22, 2, 38), rgb(38, 1, 41), rgb(0, 0, 0));
   }
+
+  ::-webkit-input-placeholder{
+    color: black;
+}
 </style>

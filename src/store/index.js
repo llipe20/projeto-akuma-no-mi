@@ -5,7 +5,11 @@ export default createStore({
     trending : [],
     alta : [],
     favorite : [],
-    login : false
+    login : false,
+    user : {
+      name : 'Felipe',
+      avatar : '/sanji.jpg'
+    }
   },
   getters: {
     
@@ -32,6 +36,10 @@ export default createStore({
       const obj = state.favorite.filter(movie => movie.id == id)
       obj.isFavorite = false
       state.favorite = state.favorite.filter(movie => movie.id != id)
+    },
+
+    GetUser : (state, data) => {
+      state.user = data
     }
   },
   actions: {

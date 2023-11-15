@@ -25,7 +25,14 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
             </svg>
 
-            <span class="h-10 w-10 rounded-full bg-white"></span>
+            <div class="flex justify-center items-center gap-2 w-auto h-auto">
+                <span class="h-10 w-10 bg-white border" @click="Esconder()">
+                    <img :src="user.avatar">
+                </span>
+                <span v-if="isName" class="text-base pl-2">
+                    Hey, {{user.name}}!
+                </span>
+            </div>
         </div>
     </div>
 </template>
@@ -36,7 +43,9 @@ export default {
 
     data() {
         return {
-            isScroll : false
+            isScroll : false,
+            user : this.$store.state.user || '',
+            isName : false
         }
     },
 
@@ -52,6 +61,10 @@ export default {
         Gaia() {
             this.isScroll = window.scrollY > 5
         },
+        
+        Esconder() {
+            this.isName = !this.isName
+        }
     }
 }
 </script>
@@ -60,6 +73,7 @@ export default {
 
 .caixa-pesquisa{
     background-color: transparent;
+    margin-right: -20px;
     height: 40px;
     padding: 10px;
     border-radius: 40px;
