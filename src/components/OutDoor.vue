@@ -21,7 +21,7 @@
                         star_half
                     </span>
                     <span class="text-info">
-                        {{ movie.vote_average }}
+                        {{ movie.vote_average.toFixed(1) }}
                     </span>
                 </div>
             </div>

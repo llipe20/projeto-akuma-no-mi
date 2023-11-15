@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col justify-center items-start w-44 md:w-52 h-auto rounded-xl relative scale-90 md:hover:scale-95 hover:border hover:border-2 shadow cursor-pointer">
+  <div 
+      class="flex flex-col justify-end items-start w-44 md:w-52 h-64 rounded-xl relative scale-90 md:hover:scale-95 shadow cursor-pointer bg-cover"
+      :style="{ 'background-image': `url('https://image.tmdb.org/t/p/w154${localMovie.poster_path}')` }" 
+  >
 
-    <div class="w-full h-48 md:56 bg-black rounded-t-xl bg-cover bg-no-repeat" :style="{ 'background-image': `url('https://image.tmdb.org/t/p/w154${localMovie.poster_path}')` }">
-    </div>
-
-    <div class="w-44 md:w-52 h-22 md:h-24 gap-px pl-4 pr-4 pb-4 text-purple-950 bg-gray-300 rounded-b-xl pt-2">
+    <div class="w-44 md:w-52 h-22 md:h-24 gap-px pl-4 pr-4 pb-4 text-purple-950 bg rounded-b-xl pt-2">
         <h1 class="text-base md:text-lg font-bold">
             {{ localMovie ? localMovie.media_type == 'tv' ? localMovie.name.slice(0,25) : localMovie.title.slice(0,20) : 'Carregando...' }}
         </h1>
@@ -72,5 +72,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .bg {
+    background: linear-gradient(100deg, white 0%, rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(20px)
+  }
+</style>
 
 

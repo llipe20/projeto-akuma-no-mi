@@ -1,9 +1,10 @@
 {
-    "users" : [
-        {
-            "name" : "Felipe",
-            "email" : "silvahlipe@gmail.com",
-            "senha" : "1503"
-        }
-    ]
+  "users": [
+    {
+      "id" : 1,
+      "name": "Felipe",
+      "email": "silvahlipe@gmail.com",
+      "senha": "1503"
+    }
+  ]
 }

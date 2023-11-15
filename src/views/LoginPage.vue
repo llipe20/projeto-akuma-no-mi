@@ -21,11 +21,30 @@
             action="" 
             class="flex flex-col justify-center items-center gap-4 w-full h-auto p-4 md:w-full rounded-xl text-black"
         >
+            <!-- ICONS -->  
+            <div
+                v-if="!isLoginForm" 
+                class="flex justify-center items-center gap-2 p-2 w-full h-auto">
+                <div class="h-16 w-16 bg-red-500 hover:border">
+
+                </div>
+
+                <div class="h-16 w-16 bg-red-500 hover:border">
+
+                </div>
+                <div class="h-16 w-16 bg-red-500 hover:border">
+
+                </div>
+                <div class="h-16 w-16 bg-red-500 hover:border border-lg">
+
+                </div>
+            </div>
+
             <div
                 v-if="!isLoginForm" 
                 class="flex justify-between items-center w-72 text-white"
             >
-              <label for="name">Nome: </label>
+              <label class="mr-2" for="name">Nome: </label>
               <InputView 
                   :type="'name'" 
                   :name="'name'" 
@@ -38,7 +57,7 @@
             </div>
             
             <div class="flex justify-between items-center w-72">
-              <label for="name" class="text-white">Email:</label>
+              <label for="name" class="text-white mr-2">Email:</label>
               <InputView 
                   :type="'email'" 
                   :name="'email'" 
@@ -51,7 +70,7 @@
             </div>
 
             <div class="flex justify-between items-center w-72">
-              <label for="senha" class="text-white">Senha: </label>
+              <label for="senha" class="text-white mr-2">Senha: </label>
               <InputView 
                   :type="'password'" 
                   :name="'senha'" 
@@ -62,14 +81,14 @@
               />
             </div>
 
-            <a v-if="isLoginForm" href="#" class="w-2/5 text-white text-center mt-1 mb-1 hover:underline">Esqueceu a senha?</a>
+            <a v-if="isLoginForm" href="#" class="w-2/5 text-white text-center mt-1 hover:underline">Esqueceu a senha?</a>
 
             <InputView 
                 :type="'submit'" 
                 :name="'submit'" 
                 :id="'submit'" 
                 :value="isLoginForm ? 'Entrar' : 'Criar conta'" 
-                class="w-56 md:2/5 h-10 border-0 outline-0 bg-purple-950 text-white rounded-lg cursor-pointer scale-95 hover:scale-100 shadow" 
+                class="w-56 md:2/5 h-10 border-0 outline-0 bg-purple-950 text-white rounded-lg cursor-pointer scale-95 hover:scale-100 shadow mt-2" 
             />
 
             <a href="#" class="w-2/5 text-white text-center mb-2 hover:underline" @click="llpe">
@@ -78,12 +97,12 @@
         </form>
 
         <ModalTV
+          v-if="isModal"
           class="absolute right-10 top-10" 
-          :bg="'bg-red-500'"
-          :msg="'Usuário errado!'"
+          :bg="fundo"
+          :msg="msg"
         />
     </div>
-    
   </div>
 </template>
 
@@ -103,18 +122,34 @@ export default {
       nome : '',
       email : '',
       senha : '',
-      isLoginForm : true
+      isLoginForm : true,
+      fundo : '',
+      msg : '',
+      isModal : false
     }
   },
 
   methods : {
 
+      show(fundo, msg) {
+        this.fundo = fundo
+        this.msg = msg
+        this.isModal = true
+
+        const time = setInterval(() => {
+          this.isModal = false
+          const stop = true
+          if(stop) {
+            clearInterval(time)
+          }
+        }, 2000)
+      },
+
       llpe() {
           this.isLoginForm = !this.isLoginForm
       },
 
-     async Login(event) {
-      event.preventDefault()
+     async login() {
 
       if(this.email != '' || this.senha != '') {
         const req = await fetch('http://localhost:3000/users')
@@ -123,16 +158,67 @@ export default {
         
         if(!login || login == null) {
           // MODAL DE AVISO - usuário não existe
+          this.show('bg-red-700', 'Usuário inexistente!')
         } else {
           if(login.senha == this.senha) {
-            // ABRIR HOME
+            // ABRIR HOME 
+            console.log('login certo')
+
+            this.email = ''
+            this.seenha = ''
           } else {
             // MODAL DE AVISO - senha errada
+            this.show('bg-red-700', 'Senha incorreta!')
           }
         } 
       } else {
         // MODAL DE AVISO - preencher campos
+        console.log('preencha os campos')
+        this.show('bg-red-700', 'Preencha os campos!')
       }
+    },
+
+    async addUser() {
+
+      // Verificando se o user ja existe
+      if(this.email != '') {
+        let req = await fetch('http://localhost:3000/users')
+        let res = await req.json()
+        const user = res.find((user) => user.email == this.email) || null
+
+        if(user != null) {
+          // MODAL DE AVISO - usuário existente
+          this.show('bg-red-700', 'Email existente em uma conta!')
+        } else {
+          // pegando dados do form
+          if(this.name == '' || this.senha == '') {
+              this.show('bg-red-700', 'Preencha todos os dados!')
+          } else {
+            const data = {
+              name : this.nome,
+              email : this.email,
+              senha : this.senha
+            }
+
+            // inserindo no banco
+            const dataJson = JSON.stringify(data)
+            req = await fetch('http://localhost:3000/users', {
+              method : 'POST',
+              headers : {'Content-Type' : 'application/json'},
+              body : dataJson
+            })
+            
+            this.show('bg-green-700', 'Conta criada com sucesso!')
+          }
+          
+        }
+      } else {
+        this.show('bg-red-700', 'Preencha os dados')
+      }
+
+      this.nome = ''
+      this.email = ''
+      this.senha = ''
     }
   }
 }

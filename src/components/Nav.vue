@@ -10,9 +10,16 @@
         </div>
 
         <div class="flex items-center gap-10 hover:cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 scale-95 hover:scale-110">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
+            <!-- Lupa de Pesquisa retrátil -->
+            <div class="caixa-pesquisa">
+                <input type="text" class="texto-pesquisa" placeholder="Pesquisar" required>
+                <a href="#" class="botao-pesquisa">
+                    <!-- Lupa de pesquisa -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </a>
+            </div>
 
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 scale-95 hover:scale-110">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
@@ -48,3 +55,65 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+.caixa-pesquisa{
+    background-color: transparent;
+    height: 40px;
+    padding: 10px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-pesquisa{
+    border: none;
+    background: none;
+    outline: none;
+    color: black;
+    font-size: 16px;
+    line-height: 40px;
+    width: 0;
+    border-radius: 40px;
+    transition: all .5s;
+}
+
+/* Muda a cor dos placeholders, coloca a cor que melhor combinar */
+::-webkit-input-placeholder{
+    color: black;
+}
+
+.botao-pesquisa i{
+    height: 20px;
+    width: 20px;
+}
+
+.botao-pesquisa{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Passando as propriedades ao texto inserido na barra de pesquisa assim que o mouse tocar na lupa*/
+.caixa-pesquisa:hover > .texto-pesquisa{
+    background-color: white;
+    width: 240px;
+    padding: 0 7px;
+}
+/* Fazendo o mesmo com o botão de pesquisa */
+.caixa-pesquisa:hover > .botao-pesquisa{
+    background-color: white;
+    color: black;
+}
+
+.caixa-pesquisa:hover {
+    background-color: white;
+    color: black;
+}
+</style>

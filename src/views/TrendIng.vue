@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap justify-start items-start gap-5 w-full md:w-80-vw min-h-screen text-lg bg-black p-8 mt-8 mb-4 md:mt-0">
+    <div class="flex flex-wrap justify-start items-start gap-5 w-full lg:w-80-vw min-h-screen text-lg bg-black p-8 mt-8 mb-4 md:mt-0">
 
         <!-- recomendados -->
         <div class="flex justify-center w-full relative pl-2">
