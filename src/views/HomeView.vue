@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-start items-center gap-5 w-full lg:w-80-vw min-h-screen text-lg bg-black">
+    <div class="flex flex-col justify-start items-center gap-2 w-full lg:w-80-vw min-h-screen text-lg bg-black">
         <HeaderView />
 
         <!-- filmes em alta -->

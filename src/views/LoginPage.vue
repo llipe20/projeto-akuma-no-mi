@@ -69,7 +69,7 @@
                   :id="'name'" 
                   :placeholder="'Apelido'" 
                   v-model="nome" 
-                  :max="20"
+                  :max="10"
                   class="w-58 md:2/5 h-10 border-0 outline-0 bg-white rounded-lg pl-4 text-black" 
                   autofocus
               />

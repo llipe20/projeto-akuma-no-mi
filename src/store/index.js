@@ -6,10 +6,7 @@ export default createStore({
     alta : [],
     favorite : [],
     login : false,
-    user : {
-      name : 'Felipe',
-      avatar : '/sanji.jpg'
-    }
+    user : {}
   },
   getters: {
     

@@ -9,7 +9,7 @@
             <a href="#" class="hover:border-b">Lançamentos</a>
         </div>
 
-        <div class="flex items-center gap-10 hover:cursor-pointer">
+        <div class="flex items-center gap-10 hover:cursor-pointer w-auto">
             <!-- Lupa de Pesquisa retrátil -->
             <div class="caixa-pesquisa">
                 <input type="text" class="texto-pesquisa" placeholder="Pesquisar" required>
@@ -27,11 +27,17 @@
 
             <div class="flex justify-center items-center gap-2 w-auto h-auto">
                 <span class="h-10 w-10 bg-white border" @click="Esconder()">
-                    <img :src="user.avatar">
+                    <img :src="user.avatar != null ? user.avatar : '/sad.png'">
                 </span>
-                <span v-if="isName" class="text-base pl-2">
-                    Hey, {{user.name}}!
-                </span>
+
+                <div class="flex flex-col md:flex-row md:gap-1 md:text-base justify-center items-center">
+                    <span v-if="isName" class="text-sm">
+                        Hey, 
+                    </span>
+                    <span v-if="isName" class="text-sm">
+                        {{user.name != null ? user.name : 'faça login'}}!
+                    </span>
+                </div>
             </div>
         </div>
     </div>
@@ -120,6 +126,13 @@ export default {
     width: 240px;
     padding: 0 7px;
 }
+
+@media (max-width: 800px) {
+    .caixa-pesquisa:hover > .texto-pesquisa{
+        width: 120px;
+    }
+}
+
 /* Fazendo o mesmo com o botão de pesquisa */
 .caixa-pesquisa:hover > .botao-pesquisa{
     background-color: white;

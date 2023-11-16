@@ -1,10 +1,10 @@
 <template>
     <div 
-        class="w-full md:w-5/6 h-20 text-white pr-8 pl-10 max-md:justify-end fixed z-20"
+        class="w-full lg:w-5/6 h-20 text-white pr-8 pl-10 max-md:justify-end fixed z-20"
         :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
     ></div>
 
-    <div class="flex flex-wrap justify-start items-start gap-4 w-full lg:w-80-vw mt-8 md:mt-0 min-h-screen text-lg bg-black p-8">
+    <div class="flex flex-wrap justify-start items-start gap-y-4 gap-x-px w-full lg:w-80-vw mt-8 lg:mt-0 min-h-screen text-lg bg-black p-8">
         <CardView 
             v-for="movie in movies"
             :key="movie.id"

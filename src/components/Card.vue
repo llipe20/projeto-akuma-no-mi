@@ -17,7 +17,7 @@
         ref="btnFavorite" 
         @click="toggleFavorite" 
         :tag="favoriteIcon" 
-        :class="favoriteIconClasses" 
+        :class="favoriteClass" 
         class="flex justify-center items-center w-8 h-8 rounded-lg absolute right-4 top-4 shadow"/>
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
       return '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /><span class="material-symbols-outlined">favorite</span>';
     },
 
-    favoriteIconClasses() {
+    favoriteClass() {
       return {
         'bg-purple-950': this.isFavorite,
         'text-white': this.isFavorite,
@@ -61,16 +61,22 @@ export default {
   methods: {
     toggleFavorite() {
       this.localMovie.isFavorite = true
-      this.$store.dispatch('GetMutation', { mutation: 'addFavorite', data: this.localMovie })
+      this.$store.dispatch('GetMutation', { 
+        mutation: 'addFavorite', 
+        data: this.localMovie 
+      })
       this.isFavorite = !this.isFavorite
 
       // Se não for mais favorito, remova-o do Vuex
       if (!this.isFavorite) {
-        this.$store.dispatch('GetMutation', { mutation: 'removeFavorite', data: this.localMovie.id })
+        this.$store.dispatch('GetMutation', { 
+          mutation: 'removeFavorite', 
+          data: this.localMovie.id 
+        })
       }
     },
   },
-};
+}
 </script>
 
 <style scoped>

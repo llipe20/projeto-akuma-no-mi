@@ -46,8 +46,11 @@
                             class="flex justify-center items-center w-36 h-12 bg-purple-950 rounded-lg hover:scale-110" />
 
                         <ButtonView 
-                            :tag="icon" 
-                            class="flex justify-center items-center w-12 h-12 bg-white rounded-lg text-purple-900  hover:scale-110"/>
+                            ref="btnFavorite" 
+                            @click="toggleFavorite" 
+                            :tag="favoriteIcon" 
+                            :class="favoriteClass" 
+                            class="flex justify-center items-center w-12 h-12 rounded-lg hover:scale-110"/>
                     </div>
                 </div>
             </div>  
@@ -69,16 +72,30 @@ export default {
     data() {
         return {
             span : '<span>Watch now</span>',
-
             icon : '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /><span class="material-symbols-outlined">favorite</span>',
-
             value : 1,
-            movies : []
+            movies : [],
+            isFavorite: false
         }
     },
 
+    computed: {
+        favoriteIcon() {
+            return '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /><span class="material-symbols-outlined">favorite</span>';
+        },
+
+        favoriteClass() {
+            return {
+                'bg-purple-950': this.isFavorite,
+                'text-white': this.isFavorite,
+                'bg-white': !this.isFavorite,
+                'text-purple-950': !this.isFavorite,
+            }
+        },
+    },
+
     methods : {
-         Destaque() {
+        Destaque() {
             this.value = Math.floor(Math.random() * 20)
             this.movies = this.$store.state.trending
             return true
@@ -86,6 +103,23 @@ export default {
 
         LeeVsGaara() {
             window.open('https://www.youtube.com/watch?v=VgDgWzBL7s4', '_blank')
+        },
+
+        toggleFavorite() {
+            this.movies[this.value].isFavorite = true
+            this.$store.dispatch('GetMutation', { 
+                mutation: 'addFavorite', 
+                data: this.movies[this.value] 
+            })
+            this.isFavorite = !this.isFavorite
+
+            // Se não for mais favorito, remova-o do Vuex
+            if (!this.isFavorite) {
+                this.$store.dispatch('GetMutation', { 
+                    mutation: 'removeFavorite', 
+                    data: this.movies[this.value].id 
+                })
+            }
         }
     },
 
@@ -93,6 +127,7 @@ export default {
         const stop = setInterval(() => {
             const gaia = this.Destaque()
             if(gaia) {
+                this.isFavorite = this.movies[this.value]?.isFavorite || false
                 clearInterval(stop)
             }
         }, 300)
