@@ -34,7 +34,7 @@
                 </div>
 
                 <div 
-                  class="h-16 w-16 bg-red-500 border border-2 hover:border-purple-950 hover:border-4"
+                  class="h-16 w-16 bg-purple-950 border border-2 hover:border-purple-950 hover:border-4"
                   @click="Select('icon-2')"
                   id="icon-2"
                 >
@@ -42,7 +42,7 @@
                 </div>
 
                 <div 
-                  class="h-16 w-16 bg-red-500 border border-2 hover:border-purple-950 hover:border-4"
+                  class="h-16 w-16 bg-purple-950 border border-2 hover:border-purple-950 hover:border-4"
                   @click="Select('icon-3')"
                   id="icon-3"
                 >
@@ -50,7 +50,7 @@
                 </div>
 
                 <div 
-                  class="h-16 w-16 bg-red-500 border border-2 hover:border-purple-950 hover:border-4"
+                  class="h-16 w-16 bg-purple-950 border border-2 hover:border-purple-950 hover:border-4"
                   @click="Select('icon-4')"
                   id="icon-4"
                 >
@@ -150,7 +150,7 @@ export default {
   },
 
   methods : {
-
+      // Manipulação das icons
       Select(icon) {
           const icons = ['icon-1', 'icon-2', 'icon-3', 'icon-4'];
           icons.forEach((iconId) => {
@@ -181,6 +181,7 @@ export default {
           }
       },
 
+      // Manipulação de mensagem de aviso
       show(fundo, msg) {
         this.fundo = fundo
         this.msg = msg
@@ -195,12 +196,13 @@ export default {
         }, 2000)
       },
 
+      // Alternancia entre os form de criar user e login
       llpe() {
           this.isLoginForm = !this.isLoginForm
       },
 
+    // Tratamento e verificação de login
      async login() {
-
       if(this.email != '' || this.senha != '') {
         const req = await fetch('http://localhost:3000/users')
         const res = await req.json()
@@ -212,14 +214,19 @@ export default {
         } else {
           if(login.senha == this.senha) {
             // ABRIR HOME 
+            // salvar user no state
             this.$store.dispatch('GetMutation', {
               mutation : 'GetUser',
               data : login
             })
-            console.log('login certo')
+            // levar o user para HOME 
+            this.$store.dispatch('GetMutation', {
+              mutation : 'UpdateLogin',
+              data : false
+            })
 
             this.email = ''
-            this.seenha = ''
+            this.senha = ''
           } else {
             // MODAL DE AVISO - senha errada
             this.show('bg-red-700', 'Senha incorreta!')
@@ -233,7 +240,6 @@ export default {
     },
 
     async addUser() {
-
       // Verificando se o user ja existe
       if(this.email != '') {
         let req = await fetch('http://localhost:3000/users')
@@ -251,7 +257,8 @@ export default {
             const data = {
               name : this.nome,
               email : this.email,
-              senha : this.senha
+              senha : this.senha,
+              avatar : this.icon
             }
 
             // inserindo no banco
@@ -263,11 +270,12 @@ export default {
             })
             
             this.show('bg-green-700', 'Conta criada com sucesso!')
+            this.llpe()
           }
           
         }
       } else {
-        this.show('bg-red-700', 'Preencha os dados')
+        this.show('bg-red-700', 'Preencha os dados!')
       }
 
       this.nome = ''
