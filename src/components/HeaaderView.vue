@@ -91,7 +91,7 @@ export default {
                 'bg-white': !this.isFavorite,
                 'text-purple-950': !this.isFavorite,
             }
-        },
+        }   
     },
 
     methods : {

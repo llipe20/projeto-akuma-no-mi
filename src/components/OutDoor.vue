@@ -1,7 +1,11 @@
 <template>
-    <div class="flex container shadow">
+    <div 
+        class="flex container shadow"
+    >
         <!-- CARTAZ DO FILME-->
-        <div class="flex box-cartaz overflow-hidden border">
+        <div 
+            class="flex box-cartaz overflow-hidden border"
+        >
             <img 
                 :src="`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`" :alt="`${movie.id}`"  
             >
@@ -55,9 +59,11 @@
                     @click="LeeVsGaara()"
                     class="flex justify-center items-center w-32 h-12 bg-purple-950 rounded-lg hover:scale-110 cursor-pointer" />
 
-                <ButtonView 
-                    :tag="icon" 
-                    class="flex justify-center items-center w-12 h-12 bg-white rounded-lg text-purple-900  hover:scale-110 cursor-pointer"/>
+                <ButtonView  
+                    :tag="favoriteIcon" 
+                    :class="favoriteClass" 
+                    @click="toggleFavorite()"
+                    class="flex justify-center items-center w-12 h-12 rounded-lg hover:scale-110 cursor-pointer"/>
             </div>
         </div>
     </div>
@@ -81,13 +87,47 @@ export default {
         return {
             span : '<span>Watch now</span>',
 
-            icon : '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /><span class="material-symbols-outlined">favorite</span>'
+            isFavorite : false,
         }
+    },
+
+    
+    computed: {
+        favoriteIcon() {
+            return '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /><span class="material-symbols-outlined">favorite</span>';
+        },
+
+        favoriteClass() {
+            return {
+                'bg-purple-950': this.isFavorite,
+                'text-white': this.isFavorite,
+                'bg-white': !this.isFavorite,
+                'text-purple-950': !this.isFavorite,
+            }
+        }   
     },
 
     methods : {
         LeeVsGaara() {
             window.open('https://www.youtube.com/watch?v=VgDgWzBL7s4', '_blank')
+        },
+
+        toggleFavorite() {
+            const movieCopy = { ...this.movie };
+            movieCopy.isFavorite = true
+            this.$store.dispatch('GetMutation', { 
+                mutation: 'addFavorite', 
+                data: movieCopy 
+            })
+            this.isFavorite = !this.isFavorite
+
+            // Se não for mais favorito, remova-o do Vuex
+            if (!this.isFavorite) {
+                this.$store.dispatch('GetMutation', { 
+                    mutation: 'removeFavorite', 
+                    data: this.movie.id 
+                })
+            }
         }
     }
 }
@@ -102,7 +142,8 @@ export default {
     }
 
     .container {
-        background-image: linear-gradient(to left, #2f0451, #0e0219, #1c0130);
+        background: linear-gradient(100deg, rgba(255, 255, 255, 0) 0%, rgb(47, 1, 65) 100%);
+        backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 20px;
         margin-left: 10px;
@@ -184,6 +225,7 @@ export default {
             flex-direction: row;
             justify-content: stretch;
             gap: 10px;
+            background: linear-gradient(100deg, rgb(47, 1, 65) 0%, rgba(255, 255, 255, 0) 100%);
         }
     }
 </style>
