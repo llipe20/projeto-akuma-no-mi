@@ -11,7 +11,7 @@
                 <div class="h-20 w-full"></div>
                 
                 <!-- Box de informações de filmes  -->
-                <div class="flex flex-col justify-start gap-5 text-white mb-28 pl-10 w-full text-lg">
+                <div class="flex flex-col justify-start gap-2 lg:gap-5 text-white mb-28 pl-5 lg:pl-10 w-full text-lg">
                     <h1 class="text-3xl md:text-4xl font-bold w-5/6">
                         {{ movies && movies.length > 0 ? movies[value].media_type == 'tv' ? movies[value].name : movies[value].title : 'Carregando...' }}
                     </h1>
