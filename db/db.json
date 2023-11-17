@@ -20,6 +20,13 @@
       "senha": "1503",
       "avatar": "/buggy.jpg",
       "id": 3
+    },
+    {
+      "name": "nare",
+      "email": "danii@gmail.com",
+      "senha": "1503",
+      "avatar": "/nami.jpg",
+      "id": 4
     }
   ]
 }

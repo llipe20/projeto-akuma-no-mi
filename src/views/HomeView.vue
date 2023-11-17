@@ -3,11 +3,11 @@
         <HeaderView />
 
         <!-- filmes em alta -->
-        <div class=" flex justify-center items-center w-full h-80 relative lg:pl-2">
+        <div class=" flex justify-center items-center w-full h-72 relative lg:pl-2">
 
             <ButtonView :tag="left" class="hidden lg:flex absolute justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
-            <div class="flex items-center w-auto h-80 pl-6 pt-4 pb-4 overflow-scroll" v-if="hipes && hipes.length > 0">
+            <div class="flex items-center w-auto h-72 pl-4 pt-4 overflow-scroll" v-if="hipes && hipes.length > 0">
                 <CardView v-for="hipe in hipes" :key="hipe.id" :movie="hipe"/>
             </div>
             <span v-else class="text-white w-full text-center">Carregando...</span>
@@ -16,11 +16,11 @@
         </div>
 
         <!-- recomendados -->
-        <div class="flex justify-center items-center w-full h-auto lg:h-80 relative lg:pl-2">
+        <div class="flex justify-center items-center w-full h-72 relative lg:pl-2">
 
             <ButtonView :tag="left" class="hidden lg:flex absolute justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
 
-            <div class="flex items-center min-w-auto h-80 pl-6 pt-4 pb-4 overflow-scroll" v-if="trending && trending.length > 0"> 
+            <div class="flex items-center min-w-auto h-72 pl-4 pt-4 pb-6 overflow-scroll" v-if="trending && trending.length > 0"> 
                 <CardView v-for="trend in trending" :key="trend.id" :movie="trend" />
             </div>
             <span v-else class="text-white text-center w-full">Carregando...</span>

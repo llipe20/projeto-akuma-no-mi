@@ -120,27 +120,24 @@ export default {
     align-items: center;
 }
 
-/* Passando as propriedades ao texto inserido na barra de pesquisa assim que o mouse tocar na lupa*/
-.caixa-pesquisa:hover > .texto-pesquisa{
-    background-color: white;
-    width: 240px;
-    padding: 0 7px;
-}
-
-@media (max-width: 800px) {
+@media (min-width: 800px) {
+        /* Passando as propriedades ao texto inserido na barra de pesquisa assim que o mouse tocar na lupa*/
     .caixa-pesquisa:hover > .texto-pesquisa{
-        width: 120px;
+        background-color: white;
+        width: 240px;
+        padding: 0 7px;
+    }
+
+    /* Fazendo o mesmo com o botão de pesquisa */
+    .caixa-pesquisa:hover > .botao-pesquisa{
+        background-color: white;
+        color: black;
+    }
+
+    .caixa-pesquisa:hover {
+        background-color: white;
+        color: black;
     }
 }
 
-/* Fazendo o mesmo com o botão de pesquisa */
-.caixa-pesquisa:hover > .botao-pesquisa{
-    background-color: white;
-    color: black;
-}
-
-.caixa-pesquisa:hover {
-    background-color: white;
-    color: black;
-}
 </style>
