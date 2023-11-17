@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center w-screen h-screen bg-black">
-    <div class="flex flex-col gap-4 justify-center items-center w-5/6 md:w-2/5 h-auto bg-black rounded-xl pb-4 pt-8 border">
+    <div class="flex flex-col gap-4 justify-center items-center w-5/6 md:w-2/5 h-auto bg-black rounded-xl pb-4 pt-8 lg:border">
         <div class="flex flex-col justify-center items-center text-white gap-2 w-full">
             <div class="flex gap-2 text-2xl">
                 <span>
@@ -11,7 +11,7 @@
                 </span>
             </div>
             <span class="text-base text-center">
-                Se sua estrela não brilha, não tente apagar a minha!
+                Seja bem vinde! Plataforma clandestina!
             </span>
         </div>
 
@@ -60,9 +60,8 @@
 
             <div
                 v-if="!isLoginForm" 
-                class="flex justify-between items-center w-72 text-white"
+                class="flex justify-center items-center w-72 text-white"
             >
-              <label class="mr-2" for="name">Nome: </label>
               <InputView 
                   :type="'name'" 
                   :name="'name'" 
@@ -75,8 +74,7 @@
               />
             </div>
             
-            <div class="flex justify-between items-center w-72">
-              <label for="name" class="text-white mr-2">Email:</label>
+            <div class="flex justify-center items-center w-72">
               <InputView 
                   :type="'email'" 
                   :name="'email'" 
@@ -88,8 +86,7 @@
               />
             </div>
 
-            <div class="flex justify-between items-center w-72">
-              <label for="senha" class="text-white mr-2">Senha: </label>
+            <div class="flex justify-center items-center w-72">
               <InputView 
                   :type="'password'" 
                   :name="'senha'" 

@@ -1,6 +1,6 @@
 <template>
     <div 
-        class="w-full lg:w-5/6 h-20 text-white pr-8 pl-10 max-md:justify-end fixed z-20"
+        class="w-full lg:w-5/6 h-20 text-white pr-4 lg:pr-8 pl-4 lg:pl-10 max-md:justify-end fixed z-20"
         :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
     ></div>
 
