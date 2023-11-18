@@ -19,7 +19,7 @@
         <form 
             @submit.prevent="isLoginForm ? login() : addUser()" 
             action="" 
-            class="flex flex-col justify-center items-center gap-4 w-full h-auto p-4 md:w-full rounded-xl text-black"
+            class="flex flex-col justify-center items-center gap-4 w-full h-auto p-4 rounded-xl text-black"
         >
             <!-- ICONS -->  
             <div
@@ -97,7 +97,7 @@
               />
             </div>
 
-            <a v-if="isLoginForm" href="#" class="w-2/5 text-white text-center mt-1 hover:underline">Esqueceu a senha?</a>
+            <a v-if="isLoginForm" href="#" class="w-3/5 text-white text-center mt-1 hover:underline">Esqueceu a senha?</a>
 
             <InputView 
                 :type="'submit'" 

@@ -1,10 +1,10 @@
 <template>
     <div 
-        class="w-full lg:hidden h-20 text-white pr-8 pl-10 max-md:justify-end fixed z-20"
+        class="w-full xl:hidden h-20 text-white pr-8 pl-10 max-md:justify-end fixed z-20"
         :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
     ></div>
 
-    <div class="flex flex-wrap justify-start items-start lg:gap-2 w-full lg:w-80-vw min-h-screen text-lg bg-black p-4 lg:p-8 mt-8 mb-4 lg:mt-0">
+    <div class="flex flex-wrap justify-start items-start xl:gap-2 w-full xl:w-80-vw min-h-screen text-lg bg-black p-4 lg:p-8 mt-8 mb-4 lg:mt-0">
 
         <!-- recomendados -->
         <div class="flex justify-center w-full relative pl-2 overflow-hidden">

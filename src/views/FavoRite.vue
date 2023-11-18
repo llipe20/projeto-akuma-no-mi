@@ -1,17 +1,17 @@
 <template>
-    <div 
-        class="w-full lg:w-5/6 h-20 text-white pr-4 lg:pr-8 pl-4 lg:pl-10 max-md:justify-end fixed z-20"
-        :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
-    ></div>
+    <div class="flex flex-row flex-wrap justify-start items-start gap-0 w-full xl:w-80-vw mt-10 xl:mt-0 min-h-screen text-lg bg-black p-8 relative">
 
-    <div class="flex flex-wrap justify-start items-start gap-y-4 gap-x-px w-full lg:w-80-vw mt-8 lg:mt-0 min-h-screen text-lg bg-black p-8">
+        <div 
+            class="w-full xl:w-5/6 h-20 text-white left-0 top-0 max-md:justify-end fixed z-20"
+            :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
+        ></div>
+
         <CardView 
             v-for="movie in movies"
             :key="movie.id"
             :movie="movie"
         />      
     </div>
-    
 </template>
 
 <script>

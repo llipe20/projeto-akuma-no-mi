@@ -1,31 +1,35 @@
 <template>
-    <div class="flex flex-col justify-start items-center w-full lg:w-80-vw min-h-screen text-lg bg-black">
+    <div class="flex flex-col justify-start w-full xl:w-80-vw items-center min-h-screen text-lg bg-black">
         <HeaderView />
 
-        <!-- filmes em alta -->
+        <h2 class="text-white w-full text-start pl-6 md:pl-8 font-bold text-lg md:text-2xl">Recomendados</h2>
+
+        <!-- filmes recomendados -->
         <div class=" flex justify-center items-center w-full h-72 relative lg:pl-2">
 
-            <ButtonView :tag="left" class="hidden lg:flex absolute justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
+            <ButtonView :tag="left" class="hidden lg:flex absolute justify-center items-center w-12 h-full bgl text-white top-0 left-1- opacity-30 hover:opacity-100 ml-1 z-10"/>
 
-            <div class="flex items-center w-auto h-72 pl-4 pt-4 overflow-scroll" v-if="hipes && hipes.length > 0">
+            <div class="flex items-center w-auto h-72 pl-4 overflow-scroll" v-if="hipes && hipes.length > 0">
                 <CardView v-for="hipe in hipes" :key="hipe.id" :movie="hipe"/>
             </div>
             <span v-else class="text-white w-full text-center">Carregando...</span>
 
-            <ButtonView :tag="right" class="hidden lg:flex absolute justify-center items-center w-10 h-full bgr text-white top-0 right-5 md:right-0 opacity-40 hover:opacity-100"/>
+            <ButtonView :tag="right" class="hidden lg:flex absolute justify-center items-center w-12 h-full bgr text-white top-0 right-5 md:right-0 opacity-40 hover:opacity-100"/>
         </div>
 
-        <!-- recomendados -->
-        <div class="flex justify-center items-center w-full h-72 relative lg:pl-2">
+        <h2 class="text-white w-full text-start md:pl-8 pl-6 font-bold text-lg md:text-2xl">Em alta</h2>
 
-            <ButtonView :tag="left" class="hidden lg:flex absolute justify-center items-center w-10 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 ml-1 z-10"/>
+        <!-- em alta -->
+        <div class="flex justify-center items-center w-full h-72 relative lg:pl-2 md:pt-6">
 
-            <div class="flex items-center min-w-auto h-72 pl-4 pt-4 pb-6 overflow-scroll" v-if="trending && trending.length > 0"> 
+            <ButtonView :tag="left" class="hidden lg:flex absolute justify-center items-center w-12 h-full bgl text-white top-0 left-1- opacity-30 hover:opacity-100 ml-1 z-10"/>
+
+            <div class="flex items-center min-w-auto h-72 pl-4 pb-6 overflow-scroll" v-if="trending && trending.length > 0"> 
                 <CardView v-for="trend in trending" :key="trend.id" :movie="trend" />
             </div>
             <span v-else class="text-white text-center w-full">Carregando...</span>
 
-            <ButtonView :tag="right" class="hidden lg:flex absolute justify-center items-center w-10 h-full bgr text-white top-0 right-5 md:right-0 opacity-40 hover:opacity-100"/>
+            <ButtonView :tag="right" class="hidden lg:flex absolute justify-center items-center w-12 h-full bgr text-white top-0 right-5 md:right-0 opacity-40 hover:opacity-100"/>
         </div>
     </div>
 </template>

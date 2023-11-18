@@ -1,6 +1,6 @@
 <template>
   <div 
-      class="flex flex-col justify-end items-start w-44 md:w-52 h-64 rounded-xl relative scale-90 md:hover:scale-95 shadow cursor-pointer bg-cover"
+      class="flex flex-col justify-end items-start w-44 md:w-52 h-60 md:h-64 rounded-xl relative scale-90 md:hover:scale-95 shadow cursor-pointer bg-cover"
       :style="{ 'background-image': `url('https://image.tmdb.org/t/p/w154${localMovie.poster_path}')` }" 
   >
 

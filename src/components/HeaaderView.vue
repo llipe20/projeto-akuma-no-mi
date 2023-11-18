@@ -1,18 +1,16 @@
 <template>
     <div 
-        class="flex flex-col justify-between items-center w-full h-media bg-cover bg-no-repeat bg-center" 
+        class="flex flex-col justify-between items-center h-mobile lg:h-media bg-cover bg-no-repeat bg-center w-full" 
         :style="{ background: `url('https://image.tmdb.org/t/p/w1280${ movies && movies.length > 0 ? movies[value].backdrop_path : ''}')` }">
 
         <div class="vertical flex flex-col justify-between items-center w-full h-full">
 
-            <div class="horizontal flex flex-col justify-between items-center w-full h-full">
-                <NavGation />
-
-                <div class="h-20 w-full"></div>
+            <div class="horizontal flex flex-col justify-center items-center w-full h-full relative">
+                <NavGation class="top-0 right-0"/>
                 
                 <!-- Box de informações de filmes  -->
-                <div class="flex flex-col justify-start gap-2 lg:gap-5 text-white mb-28 pl-5 lg:pl-10 w-full text-lg">
-                    <h1 class="text-3xl md:text-4xl font-bold w-5/6">
+                <div class="flex flex-col justify-start gap-2 lg:gap-5 text-white pl-5 lg:pl-10 min-h-72 w-full text-base md:text-lg">
+                    <h1 class="text-2xl md:text-4xl font-bold w-5/6">
                         {{ movies && movies.length > 0 ? movies[value].media_type == 'tv' ? movies[value].name : movies[value].title : 'Carregando...' }}
                     </h1>
 
@@ -43,14 +41,14 @@
                         <ButtonView 
                             :tag="span"
                             @click="LeeVsGaara()" 
-                            class="flex justify-center items-center w-36 h-12 bg-purple-950 rounded-lg hover:scale-110" />
+                            class="flex justify-center items-center w-36 h-10  md:h-12 bg-purple-950 rounded-lg hover:scale-110" />
 
                         <ButtonView 
                             ref="btnFavorite" 
                             @click="toggleFavorite" 
                             :tag="favoriteIcon" 
                             :class="favoriteClass" 
-                            class="flex justify-center items-center w-12 h-12 rounded-lg hover:scale-110"/>
+                            class="flex justify-center items-center w-10 h-10 md:w-12 md:h-12 rounded-lg hover:scale-110"/>
                     </div>
                 </div>
             </div>  

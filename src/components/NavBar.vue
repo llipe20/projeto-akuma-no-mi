@@ -5,7 +5,7 @@
         <section 
             @click="Open"
             :class="{ 'hidden' : isHidden }"
-            class="lg:flex nav-bar border-r border-gray-700 fixed left-0 top-0 w-2/6 md:w-20-vw z-30" id="nav-bar">
+            class="xl:flex nav-bar border-r border-gray-700 fixed left-0 top-0 w-2/6 md:w-20-vw z-30" id="nav-bar">
             <div class="flex container">
                 <!-- logo -->
                 <div class="flex logo">
@@ -118,7 +118,7 @@
 
         <span
             :class="{ 'hidden' : !isHidden }" 
-            class="lg:hidden text-white text-lg fixed left-8 top-8 z-30 cursor-pointer" id="open" 
+            class="xl:hidden text-white text-lg fixed left-8 top-8 z-30 cursor-pointer" id="open" 
             @click="Open">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
@@ -128,8 +128,8 @@
         <!-- Botão de close -->
         <span 
             @click="Open()"
-            :class="{ 'hidden' : isHidden }"
-            class="fixed h-10 w-10 text-white z-30 right-5 top-8 cursor-pointer lg:hidden"
+            :class="{ 'hidden' : isHidden, 'flex' : !isHidden }"
+            class="fixed items-center justify-center h-10 w-10 text-white z-30 right-5 top-8 cursor-pointer xl:hidden bg-black rounded-full"
         >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -181,11 +181,12 @@ export default {
         flex-direction: row;
         justify-content: space-between;
         height: 100vh;
-        width: 70vw;
-        max-width: 260px;
+        width: 260px;
         padding: 0;
         gap: 0;
     }
+
+   
 
     .container {
         height: 100%;
