@@ -7,11 +7,14 @@
     <div class="flex flex-wrap justify-start items-start lg:gap-2 w-full lg:w-80-vw min-h-screen text-lg bg-black p-4 lg:p-8 mt-8 mb-4 lg:mt-0">
 
         <!-- recomendados -->
-        <div class="flex justify-center w-full relative pl-2">
+        <div class="flex justify-center w-full relative pl-2 overflow-hidden">
 
-            <ButtonView :tag="left" class="hidden lg:flex absolute justify-center items-center w-8 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 z-10"/>
+            <ButtonView
+                @click="scrollLeft()" 
+                :tag="left" 
+                class="hidden lg:flex absolute justify-center items-center w-8 h-full bgl text-white top-0 left-1 opacity-30 hover:opacity-100 z-10"/>
 
-            <div class="flex items-center gap-1 min-w-auto h-80 pt-2 pb-4 overflow-scroll overflow-y-hidden" v-if="trending && trending.length > 0">
+            <div id="rolagem" class="flex items-center gap-1 min-w-auto h-80 pt-2 pb-4 overflow-scroll overflow-y-hidden" v-if="trending && trending.length > 0">
                 <CardView 
                     v-for="trend in trending" 
                     :key="trend.id" 
@@ -21,7 +24,10 @@
             </div>
             <span v-else class="text-white text-center">Carregando...</span>
 
-            <ButtonView :tag="right" class="hidden lg:flex absolute justify-center items-center w-10 h-full bgr text-white top-0 right-0 opacity-40 hover:opacity-100"/>
+            <ButtonView 
+                @click="scrollRight()"
+                :tag="right" 
+                class="hidden lg:flex absolute justify-center items-center w-10 h-full bgr text-white top-0 right-0 opacity-40 hover:opacity-100"/>
         </div>
 
         <OutDoor 
@@ -48,6 +54,8 @@ export default {
         return {
             trending : [],
 
+            widthMax : 0,
+
             movie : null,
 
             isScroll : false,
@@ -71,6 +79,45 @@ export default {
         
         Gaia() {
             this.isScroll = window.scrollY > 5
+        },
+
+        // evento para lado direito
+        scrollRight() {
+            let ul = document.getElementById("rolagem")
+            let width = window.innerWidth
+            let styles = window.getComputedStyle(ul);
+            let margin = parseFloat(styles.marginLeft)
+
+            console.log(ul)
+
+            if (margin >= ( - (this.widthMax - width)) || ((width + margin) - this.widthMax) < width / 4) 
+            {
+                margin = this.widthMax - width - 1080
+            }
+            else 
+            {
+                margin -= width / 4
+            }
+
+            ul.style.marginLeft = `${margin}px`
+        },
+
+        // evento para lado esquerdo
+        scrollLeft() {
+            let ul = document.getElementById("rolagem")
+            console.log(ul)
+            let width = window.innerWidth
+            let styles = window.getComputedStyle(ul);
+            let margin = parseFloat(styles.marginLeft)
+
+            if (margin >= 0 || margin > (- width / 4)) {
+                margin = 0
+            }
+            else {
+                margin += width / 4
+            }
+
+            ul.style.marginLeft = `${margin}px`
         }
     },
 
@@ -85,6 +132,14 @@ export default {
 
     mounted() {
         window.addEventListener('scroll', this.Gaia)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 800) {
+                return this.widthMax = 20 * 208
+            }
+            else {
+                return this.widthMax = 20 * 130
+            }
+        })
     },
 
     beforeUnmount() {
