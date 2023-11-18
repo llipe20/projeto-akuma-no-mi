@@ -176,7 +176,7 @@ export default {
 
     .box-info, .box-botton {
         justify-content: flex-start;
-        margin-top: -10px;
+        margin-top: -5px;
         width: 100%;
         gap: 30px;
     }

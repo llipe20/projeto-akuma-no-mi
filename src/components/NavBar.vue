@@ -9,7 +9,7 @@
             <div class="flex container">
                 <!-- logo -->
                 <div class="flex logo">
-                    <span style="padding-left: 25px;">
+                    <span style="padding-left: 35px;">
                         BRAZINO
                     </span>
                     <span class="text-purple-700">
