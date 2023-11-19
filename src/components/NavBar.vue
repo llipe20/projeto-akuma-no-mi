@@ -183,7 +183,7 @@ export default {
         background-color: black;
         flex-direction: row;
         justify-content: space-between;
-        height: 100vh;
+        height: 100%;
         width: 260px;
         padding: 0;
         gap: 0;
