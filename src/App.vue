@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen">
+  <div class="h-screen overflow-hidden">
     <DashBoard  v-if="!login"/>
     <LoginPage v-else />
   </div>
