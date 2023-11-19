@@ -113,6 +113,7 @@ export default {
             }
 
             ul.style.marginLeft = `${margin}px`
+            ul.style.transition = 'all 1s'
         },
 
         // evento scroll lado esquerdo
@@ -131,6 +132,7 @@ export default {
             }
 
             ul.style.marginLeft = `${margin}px`
+            ul.style.transition = 'all 1s'
         }
     },
 

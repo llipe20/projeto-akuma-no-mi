@@ -3,7 +3,7 @@
         class="flex justify-between items-center w-full xl:w-5/6 h-20 text-white pr-4 pl-4 lg:pr-8 lg:pl-10 max-xl:justify-end fixed z-20"
         :class="{ 'bg-black': isScroll, 'transition-all' : isScroll }"
     >
-        <div class="flex justify-center items-center gap-10 h-full max-xl:hidden">
+        <div class="flex justify-center items-center gap-10 h-full max-xl:hidden xl:pl-2">
             <a href="#" class="hover:border-b">Filmes</a>
             <a href="#" class="hover:border-b">Séries</a>
             <a href="#" class="hover:border-b">Lançamentos</a>

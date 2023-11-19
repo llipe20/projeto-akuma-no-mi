@@ -98,14 +98,14 @@
 
                     <!-- nav de configurações -->
                     <div class="flex nav-exit">
-                        <router-link to="/home" class="flex link">
+                        <a class="flex link">
                             <span class="material-symbols-outlined">
                                 settings
                             </span>
                             <span class="text">
                                 Configurações
                             </span>
-                        </router-link>
+                        </a>
                         <span @click="GetLogin()" class="flex link">
                             <span class="material-symbols-outlined">
                                 logout

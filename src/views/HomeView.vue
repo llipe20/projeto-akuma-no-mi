@@ -2,10 +2,10 @@
     <div class="flex flex-col justify-start w-full xl:w-80-vw items-center min-h-screen text-lg bg-black">
         <HeaderView />
 
-        <h2 class="text-white w-full text-start pl-6 md:pl-8 font-bold text-lg md:text-2xl">Recomendados</h2>
+        <h2 class="text-white w-full text-start pl-6 md:pl-8 xl:pl-10 font-bold text-lg md:text-2xl">Recomendados</h2>
 
         <!-- filmes recomendados -->
-        <div class=" flex justify-center items-center w-full h-72 relative overflow-hidden ml-12">
+        <div class="flex justify-start items-center w-90 h-72 relative md:pt-6 overflow-hidden">
 
             <ButtonView 
                 @click="scrollLeft('rol-reco')" 
@@ -15,7 +15,7 @@
 
             <div
                 id="rol-reco" 
-                class="flex items-center w-auto h-72 overflow-x-hidden" v-if="hipes && hipes.length > 0"
+                class="flex items-center w-auto h-72 pb-6" v-if="hipes && hipes.length > 0"
             >
                 <CardView 
                     v-for="hipe in hipes" 
@@ -28,14 +28,14 @@
             <ButtonView 
                 @click="scrollRight('rol-reco')" 
                 :tag="right" 
-                class="hidden lg:flex absolute justify-center items-center w-12 h-full bgr text-white top-0 right-5 md:right-5 opacity-40 hover:opacity-100"
+                class="hidden lg:flex absolute justify-center items-center w-12 h-full bgr text-white top-0 right-5 md:right-0 opacity-40 hover:opacity-100"
             />
         </div>
 
-        <h2 class="text-white w-full text-start md:pl-8 pl-6 font-bold text-lg md:text-2xl">Em alta</h2>
+        <h2 class="text-white w-full text-start md:pl-8 xl:pl-10 pl-6 font-bold text-lg md:text-2xl">Em alta</h2>
 
         <!-- em alta -->
-        <div class="flex justify-center items-center w-full h-72 relative lg:pl-2 md:pt-6 overflow-hidden ml-8">
+        <div class="flex justify-start items-center w-90 h-72 relative md:pt-6 overflow-hidden">
 
             <ButtonView 
                 @click="scrollLeft('rol-alt')" 
@@ -45,7 +45,7 @@
 
             <div 
                 id="rol-alt"
-                class="flex items-center min-w-auto h-72 pb-6 overflow-x-hidden" 
+                class="flex items-center min-w-auto h-72 pb-6" 
                 v-if="trending && trending.length > 0"
             > 
                 <CardView 
@@ -59,7 +59,7 @@
             <ButtonView 
                 @click="scrollRight('rol-alt')" 
                 :tag="right" 
-                class="hidden lg:flex absolute justify-center items-center w-12 h-full bgr text-white top-0 right-5 md:right-4 opacity-40 hover:opacity-100"
+                class="hidden lg:flex absolute justify-center items-center w-12 h-full bgr text-white top-0 right-5 md:right-0 opacity-40 hover:opacity-100"
             />
         </div>
     </div>
@@ -117,6 +117,7 @@ export default {
             }
 
             ul.style.marginLeft = `${margin}px`
+            ul.style.transition = 'all 1s'
         },
 
         // evento para lado esquerdo
@@ -135,6 +136,7 @@ export default {
             }
 
             ul.style.marginLeft = `${margin}px`
+            ul.style.transition = 'all 1s'
         }
     },
 
@@ -148,10 +150,10 @@ export default {
 
         window.addEventListener('resize', () => {
             if (window.innerWidth > 800) {
-                return this.widthMax = 20 * 208
+                return this.widthMax = 20 * 210
             }
             else {
-                return this.widthMax = 20 * 130
+                return this.widthMax = 20 * 176
             }
         })
     }

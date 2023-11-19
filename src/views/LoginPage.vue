@@ -11,7 +11,7 @@
                 </span>
             </div>
             <span class="text-base text-center">
-                Seja bem vinde! Plataforma clandestina!
+                Seja bem vinde ao jogo da galera!
             </span>
         </div>
 
