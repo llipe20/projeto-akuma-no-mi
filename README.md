@@ -1,29 +1,5 @@
 # projeto-brazino
 
-## Project setup
-```
-npm install
-```
+## Platafroma de filmes
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+O projetro consiste em fazer o front end de uma ficticia plataforma de filmes. O projeito foi desenvolvido com Vue.js 3, Tailwind CSS 2 e algumas bibliotecas Vue. Vale lembrar que foram utilizadas duas API´s, a primeira do TMDB - fornece informações reais sobre filmes e séries - e a segunda, uma mini banco de dados usando JSON-serve para manipular dados relacionados a login de usuário. 
