@@ -5,7 +5,7 @@ export default createStore({
     trending : [],
     alta : [],
     favorite : [],
-    login : true,
+    login : false,
     user : {}
   },
   getters: {
