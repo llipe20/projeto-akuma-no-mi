@@ -63,14 +63,17 @@
                         </router-link>
 
                         <!-- slr link -->
-                        <a href="#" class="flex link">
+                        <router-link 
+                            :to="{ name: 'recomends' }" 
+                            :class="{ 'classe-ativa': isRotaAtual('recomends') }" class="flex link">
+
                             <span class="material-symbols-outlined">
                                 calendar_today
                             </span>
                             <span class="text">
                                 Lançamentos
                             </span>
-                        </a>
+                        </router-link>
                     </div>
 
                     <!-- nav de redes sociais -->
@@ -128,8 +131,8 @@
         <!-- Botão de close -->
         <span 
             @click="Open()"
-            :class="{ 'hidden' : isHidden, 'flex' : !isHidden }"
-            class="fixed items-center justify-center h-10 w-10 text-white z-30 right-5 top-8 cursor-pointer xl:hidden bg-black rounded-full"
+            :class="{ 'hidden' : isHidden }"
+            class="fixed items-center justify-center p-2 h-auto w-auto text-white z-30 right-5 top-8 cursor-pointer xl:hidden bg-black rounded-full"
         >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />

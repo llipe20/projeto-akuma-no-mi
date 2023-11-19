@@ -3,6 +3,7 @@ import FavoRite from '../views/FavoRite.vue'
 import HomeView from '../views/HomeView.vue'
 import TrendIng from '../views/TrendIng.vue'
 import LoginPage from '../views/LoginPage.vue'
+import Recomends from '../views/Recomends.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginPage
+  },
+  {
+    path: '/recomends',
+    name: 'recomends',
+    component: Recomends
   }
 ]
 

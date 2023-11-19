@@ -80,7 +80,7 @@ export default {
     methods : {
         // exibir filme no comp. Header
         Destaque() {
-            this.trending = [...this.$store.state.trending]
+            this.trending = [...this.$store.state.alta]
             this.movie = this.trending[0]
             return true
         },

@@ -40,6 +40,10 @@ export default {
   *::-webkit-scrollbar {
     display: none;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 </style>
 
 
