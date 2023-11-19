@@ -15,7 +15,7 @@
 
             <div
                 id="rol-reco" 
-                class="flex items-center w-auto h-72 pb-6" v-if="hipes && hipes.length > 0"
+                class="flex items-center w-auto h-72 pb-6 overflow-scroll overflow-y-hidden" v-if="hipes && hipes.length > 0"
             >
                 <CardView 
                     v-for="hipe in hipes" 
@@ -45,7 +45,7 @@
 
             <div 
                 id="rol-alt"
-                class="flex items-center min-w-auto h-72 pb-6" 
+                class="flex items-center min-w-auto h-72 pb-6 overflow-scroll overflow-y-hidden" 
                 v-if="trending && trending.length > 0"
             > 
                 <CardView 

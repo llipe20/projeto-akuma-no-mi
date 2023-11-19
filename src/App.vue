@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="overflow-auto">
     <DashBoard  v-if="!login"/>
-    <LoginPage v-else/>
+    <LoginPage v-else />
   </div>
 </template>
 
