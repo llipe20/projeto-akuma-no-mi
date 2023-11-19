@@ -6,7 +6,8 @@
         :placeholder="placeholder"
         :value="modelValue" 
         :maxlength="max"
-        @input="$emit('update:modelValue', $event.target.value)">
+        @input="$emit('update:modelValue', $event.target.value)"
+    >
 </template>
 
 <script>
@@ -20,6 +21,6 @@ export default {
         placeholder : String,
         modelValue : String,
         max : String
-    },
+    }
 }
 </script>
