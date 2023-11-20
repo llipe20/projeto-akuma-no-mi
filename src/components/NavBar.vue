@@ -10,10 +10,10 @@
                 <!-- logo -->
                 <div class="flex logo">
                     <span style="padding-left: 35px;">
-                        BRAZINO
+                        AKUMA
                     </span>
                     <span class="text-purple-700">
-                        777
+                        NO MI
                     </span>
                 </div>
 

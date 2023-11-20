@@ -4,14 +4,14 @@
         <div class="flex flex-col justify-center items-center text-white gap-2 w-full">
             <div class="flex gap-2 text-2xl">
                 <span>
-                  BRAZINO
+                  AKUMA
                 </span>
                 <span class="text-purple-700 font-bold">
-                  777
+                  NO MI
                 </span>
             </div>
             <span class="text-base text-center">
-                Seja bem vinde ao jogo da galera!
+                Seja bem vinde pirata!
             </span>
         </div>
 
